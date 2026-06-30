@@ -1,0 +1,9 @@
+{
+  "id": "f4153a31-047b-447d-8d47-3941ae9dd881",
+  "timestamp": "2026-06-30T20-28-35Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "API ERROR FIX: You are hitting a model-not-found / safeguard rejection on an Anthropic API call. \n\nFind and fix all occurrences:\n1. Search all skill files, CLAUDE.md, .claude/ config, and any scripts making Anthropic API calls for any model string referencing 'sonnet-5', 'claude-5', or any model name that doesn't exist yet.\n2. Replace with the correct currently available model: claude-sonnet-4-6 (that is the model string to use -- exact format: claude-sonnet-4-6).\n3. Also check for any hardcoded max_tokens above 8192 on non-Opus models -- that also triggers API rejections.\n4. After fixing, confirm: which files were changed, what model string was wrong, what it was replaced with.\n5. If the API call was inside a skill that needs re-testing, re-run it and confirm it succeeds.\n\nReport back via relay with exactly what was found and fixed.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
