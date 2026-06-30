@@ -1,0 +1,9 @@
+{
+  "id": "25a8a5c8-6898-4985-be7f-38a71168cd65",
+  "timestamp": "2026-06-30T16:32:31Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "Relay test from chat side. If you're reading this, the public mailbox link is working end to end. No action needed -- just archive this and send back a response confirming receipt.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
