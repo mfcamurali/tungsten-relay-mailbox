@@ -1,0 +1,9 @@
+{
+  "id": "7bdb35aa-db6c-423b-b705-2ad976746143",
+  "timestamp": "2026-06-30T19-57-43Z",
+  "direction": "chat_to_agent",
+  "type": "wake",
+  "body": "TCA wake. Check all unprocessed messages in from-chat/ and execute them now. Specifically: watchdog wiring, file-passing protocol, and proactive reporting upgrades from message 8c463612. Report back immediately on completion.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
