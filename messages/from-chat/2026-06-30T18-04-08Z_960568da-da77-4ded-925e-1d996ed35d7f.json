@@ -1,0 +1,9 @@
+{
+  "id": "960568da-da77-4ded-925e-1d996ed35d7f",
+  "timestamp": "2026-06-30T18-04-08Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "COLD BOOT TEST. If you are reading this because RelayListener auto-launched you with no session previously open, reply confirming: cold boot auto-launch fully operational. Include the time you detected this message.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
