@@ -1,0 +1,2 @@
+Relay upgrades smoke test -- file-passing protocol live check.
+This file proves files/from-agent -> commit -> push -> chat-pull round trip works.
