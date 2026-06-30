@@ -1,0 +1,9 @@
+{
+  "id": "31b8c3c7-0cbc-495b-b987-6c008ce357e9",
+  "timestamp": "2026-06-30T17-31-04Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "Cold-start test: if you are reading this because the relay-listener launched you automatically, reply confirming cold-start auto-launch is working.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
