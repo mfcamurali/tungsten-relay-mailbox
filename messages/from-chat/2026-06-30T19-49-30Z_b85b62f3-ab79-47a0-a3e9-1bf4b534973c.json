@@ -1,0 +1,9 @@
+{
+  "id": "b85b62f3-ab79-47a0-a3e9-1bf4b534973c",
+  "timestamp": "2026-06-30T19-49-30Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "Two changes to the RelayListener setup:\n\n1. POLLING INTERVAL: Change from 1 minute to 30 seconds. Update the scheduled task trigger RepetitionInterval from New-TimeSpan -Minutes 1 to New-TimeSpan -Seconds 30. Unregister and re-register the task. Confirm LastTaskResult=0.\n\n2. WINDOW STYLE: The PowerShell window that opens on cold-boot should launch as a normal visible open window, not minimized or hidden. Update the Start-Process call in relay-listener.ps1 to remove -WindowStyle Hidden from the pwsh launch args (the wscript/VBScript launcher that hides the listener tick is fine -- that stays hidden. Only the Claude Code session window itself should be fully visible and in focus when it opens).\n\nUpdate source scripts at C:\Users\User\Desktop\Work\# EX MACHINA\focus\x_strategies ix\ after making changes. Confirm both changes working and report back via relay.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
