@@ -1,0 +1,9 @@
+{
+  "id": "66caf25a-f13d-45ad-a15c-fa3c83e0c1bc",
+  "timestamp": "2026-06-30T21-02-37Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "TCA terminate.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
