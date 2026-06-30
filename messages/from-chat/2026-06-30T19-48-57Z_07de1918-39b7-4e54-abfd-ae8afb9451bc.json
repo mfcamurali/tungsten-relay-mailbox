@@ -1,0 +1,9 @@
+{
+  "id": "07de1918-39b7-4e54-abfd-ae8afb9451bc",
+  "timestamp": "2026-06-30T19-48-57Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "Two tasks:\n\n1. Update RelayListener scheduled task to poll every 30 seconds instead of 1 minute. Unregister the current task and re-register with RepetitionInterval of New-TimeSpan -Seconds 30. Keep all other fixes intact (wscript.exe launcher, -NoProfile -ExecutionPolicy Bypass, Repetition.Duration='', try/catch). Confirm LastTaskResult=0 after live run.\n\n2. The window should open in the background, not minimized -- it should be present in the taskbar but not steal focus. If the current wscript/VBScript launch already achieves this, confirm it. If not, fix it so the spawned PowerShell window appears in the taskbar without stealing focus or minimizing.\n\nReport back via relay when both are confirmed done.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
