@@ -1,0 +1,9 @@
+{
+  "id": "082df9c0-deeb-4dc1-8863-0b995f166429",
+  "timestamp": "2026-06-30T20-52-50Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "GAMEPLAN CONFIRMED. Execute in this exact order:\n\n=== STEP 1 (do now): Install TCA terminate + sleep commands (instruction 94a2e169) ===\nInstall the two permanent skill commands exactly as specified. No MT4 interaction needed. Confirm installed and report back via relay before proceeding.\n\n=== STEP 2 (do after step 1 confirmed): TUNGSTEN 9.38 + 9.39 design updates ===\nApply the two design updates that were spec'd for 9.38 and 9.39 (from your memory/TODO records).\n- NO live MT4 tests. No chart attach. No log watching. Code and compile only.\n- Both versions must compile to 0 errors in MetaEditor.\n- Send the final 9.39 compiled .mq4 into files/from-agent/ with a manifest.\n- Send a relay message summarising what changed in 9.38 and 9.39.\n\n=== STEP 3 (HOLD \u2014 do NOT proceed with this yet) ===\nInstruction d6482139 (live-watch-loop + MT4 live run) is PENDING. Do not execute it.\nKeep checking the mailbox after completing steps 1 and 2 -- Manuel will test 9.39 first and send explicit go-ahead before you proceed with step 3.\n\nCheck mailbox continuously after each step. Report back after step 1 complete. Report back again after step 2 complete with the file.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
