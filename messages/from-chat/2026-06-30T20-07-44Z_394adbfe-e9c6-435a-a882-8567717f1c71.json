@@ -1,0 +1,9 @@
+{
+  "id": "394adbfe-e9c6-435a-a882-8567717f1c71",
+  "timestamp": "2026-06-30T20-07-44Z",
+  "direction": "chat_to_agent",
+  "type": "wake",
+  "body": "TCA wake. Resume TUNGSTEN work. Load your last checkpoint and memory, then continue finishing the most recent incomplete TUNGSTEN version (9.20 or whatever the last active build was). Complete it to a compilable state. Once compiled successfully in MetaEditor: (1) send a summary message via relay confirming what was completed and what changed, (2) push the compiled .mq4 file into files/from-agent/ with a manifest. Manuel wants to see the file land here. Do not wait for further instruction -- work autonomously to completion and report back.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
