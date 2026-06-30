@@ -1,0 +1,9 @@
+{
+  "id": "b4106cf0-61f1-4b79-a52b-dd09e77fa627",
+  "timestamp": "2026-06-30T21-08-59Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "TCA sleep.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
