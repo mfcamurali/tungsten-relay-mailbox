@@ -1,0 +1,8 @@
+{
+  "id": "2b8d7ac7-7255-4501-9792-e41da17831e3",
+  "filename": "2026-06-30T22-27-12Z_TUNGSTEN_9.37_A7.5_QUANT_SLS(18).mq4",
+  "requires_consent": false,
+  "direction": "agent_to_chat",
+  "description": "TUNGSTEN 9.37 (A7.5 QUANT SLS(18)) source .mq4, located on disk at agent's source working dir, sent as-is unmodified",
+  "timestamp": "2026-06-30T22:27:12Z"
+}
