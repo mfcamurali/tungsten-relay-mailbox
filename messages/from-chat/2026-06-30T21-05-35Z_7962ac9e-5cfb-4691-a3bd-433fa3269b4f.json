@@ -1,0 +1,9 @@
+{
+  "id": "7962ac9e-5cfb-4691-a3bd-433fa3269b4f",
+  "timestamp": "2026-06-30T21-05-35Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "TCA terminate self-kill fix. The current approach fails because the session can't kill itself mid-execution cleanly. Fix as follows:\n\nCORRECT APPROACH \u2014 deferred self-terminate via scheduled task:\n1. When TCA terminate is received, do all the safe work first while still alive:\n   - Detach any EA from MT4 charts (if MT4 running)\n   - Close MetaEditor (if running)\n   - Close MT4 (if running)\n   - Send final relay message: TCA TERMINATED [timestamp] \u2014 all processes closed, session closing in 5s\n   - Write a one-shot self-destruct task to Windows Task Scheduler:\n      = New-ScheduledTaskAction -Execute 'C:\\Program Files\\PowerShell\u0007\\pwsh.exe' -Argument '-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -Command \"Start-Sleep 5; Get-Process node,pwsh | Where-Object {.Id -ne } | Stop-Process -Force\"'\n      = New-ScheduledTaskTrigger -Once -At (Get-Date).AddSeconds(3)\n     Register-ScheduledTask -TaskName 'TCA-SelfDestruct' -Action  -Trigger  -Force\n   - Then exit the Claude session normally with /exit or exit 0\n   The scheduled task fires 3-5s later and cleans up any lingering node/pwsh processes that didn't exit cleanly.\n\n2. For TCA sleep: same sequence, but the self-destruct task also triggers Shift+Alt+0 / SetSuspendState after killing processes.\n\n3. After registering the self-destruct task, unregister it automatically on next TCA wake so stale tasks don't accumulate:\n   Unregister-ScheduledTask -TaskName 'TCA-SelfDestruct' -Confirm: -ErrorAction SilentlyContinue\n\nUpdate tca-commands skill with this approach. Test terminate now and confirm the session actually closes.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
