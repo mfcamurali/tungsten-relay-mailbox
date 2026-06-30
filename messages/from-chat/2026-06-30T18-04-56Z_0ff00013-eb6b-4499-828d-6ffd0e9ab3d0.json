@@ -1,0 +1,9 @@
+{
+  "id": "0ff00013-eb6b-4499-828d-6ffd0e9ab3d0",
+  "timestamp": "2026-06-30T18-04-56Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "TRUE COLD BOOT TEST: if you are reading this because RelayListener auto-launched you with no prior session open, reply confirming: (1) you were cold-launched, (2) checkpoint/bootup-recall ran, (3) this message was found and processed automatically.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
