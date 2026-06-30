@@ -1,0 +1,9 @@
+{
+  "id": "8fc67f0e-a0bf-483f-af5d-974b762e04de",
+  "timestamp": "2026-06-30T17:13:00Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "Live test from chat -- terminal claude is now running via PowerShell 7 with PATH fixed. Please confirm you can see this and reply via the relay.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
