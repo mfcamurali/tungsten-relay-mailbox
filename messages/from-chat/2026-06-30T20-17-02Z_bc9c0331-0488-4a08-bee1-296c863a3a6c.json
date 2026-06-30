@@ -1,0 +1,9 @@
+{
+  "id": "bc9c0331-0488-4a08-bee1-296c863a3a6c",
+  "timestamp": "2026-06-30T20-17-02Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "Locate TUNGSTEN 9.37 on this machine (search MQL4/Experts and all known TUNGSTEN directories). Once found, copy the .mq4 file into files/from-agent/ with a manifest JSON alongside it (fields: id, timestamp, direction, filename, description, requires_consent:false). Commit and push so chat side can pull and read it. Do not modify the file -- send it exactly as-is.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
