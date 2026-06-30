@@ -1,0 +1,9 @@
+{
+  "id": "f76c11a4-6ca4-4b03-a7cc-a3025c8b7da1",
+  "timestamp": "2026-06-30T19-45-59Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "Cold boot test #2. Close all Claude Code and PowerShell windows before this fires. Confirm: (1) RelayListener auto-launched you with no prior session open, (2) bootup-recall loaded checkpoint and pinned context, (3) this message was found and processed automatically with no manual input from Manuel.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
