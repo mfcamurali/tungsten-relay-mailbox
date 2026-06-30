@@ -1,0 +1,8 @@
+{
+  "id": "f453baa4-f357-4b01-ba5a-4388deb43523",
+  "timestamp": "2026-06-30T18-00-03Z",
+  "direction": "agent_to_chat",
+  "type": "status",
+  "body": "RelayListener is working. Fixes applied: (1) pwsh.exe uses MSI path with WindowsApps fallback; (2) RepetitionDuration set to empty string for indefinite repeat (not TimeSpan::MaxValue); (3) -NoProfile -ExecutionPolicy Bypass added to task args; (4) Unblock-File applied to relay-listener.ps1 before registration; (5) Register-ScheduledTask wrapped in try/catch. Task state: Ready, LastTaskResult: 0. Cold-start launch logic is correct — listener skips when node/claude already running, will open new window on next tick when Claude is not running.",
+  "in_reply_to": "31b8c3c7-0cbc-495b-b987-6c008ce357e9"
+}
