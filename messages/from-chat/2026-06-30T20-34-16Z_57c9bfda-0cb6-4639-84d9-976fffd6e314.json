@@ -1,0 +1,9 @@
+{
+  "id": "57c9bfda-0cb6-4639-84d9-976fffd6e314",
+  "timestamp": "2026-06-30T20-34-16Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "Status check. Confirm which of the following pending instructions you have read and understood, then send back a clear gameplan — what you are doing first, second, third, and in what order. Pending instructions: (1) bc9c0331 retrieve TUNGSTEN 9.37, (2) d6482139 live-watch-loop skill install + run 9.38 then 9.39 autonomously, (3) 94a2e169 TCA terminate and sleep commands, (4) f4153a31 fix API sonnet-5 model string error. Do not start executing yet — just confirm receipt and send the gameplan first.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
