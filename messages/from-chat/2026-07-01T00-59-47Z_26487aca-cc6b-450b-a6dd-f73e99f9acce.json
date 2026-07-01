@@ -1,0 +1,9 @@
+{
+  "id": "fa2f27fe-4476-44de-9c97-92d623aec96c",
+  "timestamp": "2026-07-01T00-59-47Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "ADDENDUM TO CURRENT TASK (9.38 + 9.39 dense work):\n\nOn top of the design updates already in progress, apply full reinforcement and hardening passes to BOTH 9.38 and 9.39 before considering either version done.\n\nREINFORCEMENT (per version):\n- Every signal path: confirm it cannot produce a confident output from weak or contradictory inputs. If it can, gate it.\n- Every regime classification: confirm transitions are validated, not assumed. No silent regime locks.\n- Every position sizing call: confirm it degrades gracefully under edge inputs (zero ATR, missing spread, abnormal tick). No division by zero, no NaN propagation.\n- Every TP/SL calculation: confirm it references the correct regime-aware baseline, not a stale or default value.\n- Bayesian belief updates: confirm priors are not being overwritten by single-tick evidence. Evidence must accumulate, not snap.\n\nHARDENING (per version):\n- Remove or gate any logic path that has never been exercised and has no test condition protecting it.\n- Ensure every array access is bounds-checked. No silent out-of-bounds reads.\n- Ensure every external function call (iATR, iMA, iClose etc.) has a return value check before use.\n- Confirm no function relies on a global state that could be stale across ticks.\n- Dead code: remove it. Commented-out blocks older than this version: remove them.\n\nApply reinforcement first, then hardening, then compile. Zero errors required before moving to next version.\nBoth versions get the full pass. Do not skip hardening on 9.38 just because 9.39 is the final deliverable.",
+  "requires_consent": false,
+  "in_reply_to": "ce32485d-9613-4cf3-8844-a903a71ff96c"
+}
