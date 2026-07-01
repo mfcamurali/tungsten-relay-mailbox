@@ -1,0 +1,9 @@
+{
+  "id": "705aa8ec-901b-427d-9109-24262dd32ea9",
+  "timestamp": "2026-07-01T13-27-37Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "Continue. Pick up exactly where you left off. Report current state first, then keep going.",
+  "requires_consent": false,
+  "in_reply_to": "76c831d4-2219-46ab-8b3a-202aff7f86f8"
+}
