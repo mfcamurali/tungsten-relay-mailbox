@@ -1,0 +1,9 @@
+{
+  "id": "ce32485d-9613-4cf3-8844-a903a71ff96c",
+  "timestamp": "2026-07-01T00-58-41Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "RESUME INSTRUCTION \u2014 Option 1: TUNGSTEN 9.38 and 9.39 dense systematic work.\n\nAPPROACH:\nDense, careful, logic-level work. Not a quick patch pass. Every piece of logic touched must be compared against its ideal working version of itself before being committed to the next build. If a function exists, ask: is this the best possible version of this function given everything TUNGSTEN knows? If not, fix it before moving on.\n\nPROCESS FOR EACH VERSION (9.38 then 9.39):\n1. Read 9.37 in full. Identify every logic block that has a known TODO, a known weak point, an unresolved design tension, or a silent assumption that has not been validated.\n2. Apply the planned design update for this version from memory and TODO records.\n3. For every function or subsystem touched: compare the current implementation to the ideal version of that logic. Fix gaps, remove dead paths, tighten edge cases.\n4. Compile in MetaEditor. Zero errors required. Fix all errors before proceeding.\n5. Move to next version only after current version compiles clean.\n\nNO MT4 LIVE TESTS. No chart attach. Code and compile only.\n\nDELIVERABLE:\nAfter 9.39 compiles clean:\n- Commit 9.39 .mq4 into files/from-agent/ with a manifest JSON alongside it.\n- Send relay message with a clear description of every meaningful change made between 9.37 and 9.39: what was changed, why, and what the ideal version of that logic looks like versus what was there before.\n\nWork autonomously and systematically. Report progress at each version milestone via relay. Check mailbox between milestones.",
+  "requires_consent": false,
+  "in_reply_to": null
+}
