@@ -1,0 +1,9 @@
+{
+  "id": "1f7235b3-f46a-4b36-8f31-da384fcdc081",
+  "timestamp": "2026-07-01T02-58-39Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "Fix both. Proceed to 9.39.\n\nItem 3: Do the full SaveSystemState/LoadSystemState field-by-field reconciliation. Fix the double-write. Get the file I/O round-trip correct for every field. Do not guess \u2014 trace every FileWriteDouble/FileReadDouble call in sequence in both functions and make sure they match exactly, field for field, in the same order.\n\nItem 6: Add startTime field to the E99_Milestones struct, populate it at OnInit on first run (check if zero before setting, so restarts don't overwrite the original start), use it in E99_CalculatePathToMillion() instead of absoluteStartBalance. Days display should now be correct.\n\nAfter fixing both: proceed with the full 9.39 coherence pass as already scoped. Everything 9.38 fixed should now be made coherent as a whole. Anything 9.38 couldn't fully resolve because it needed the full picture first \u2014 resolve it now. Compile clean. Send 9.39 .mq4 in files/from-agent/ with manifest. Relay milestone report.",
+  "requires_consent": false,
+  "in_reply_to": "76c831d4-2219-46ab-8b3a-202aff7f86f8"
+}
