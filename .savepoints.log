@@ -1,4 +1,3 @@
-2026-07-01T04:54:30.3477431+02:00 | prompt:  | done: Nothing new — staying quiet.
 2026-07-01T04:55:31.8082728+02:00 | prompt:  | done: Nothing new — staying quiet.
 2026-07-01T04:56:31.6493087+02:00 | prompt:  | done: Nothing new — staying quiet.
 2026-07-01T04:57:28.7191997+02:00 | prompt:  | done: Nothing new — staying quiet.
@@ -198,3 +197,4 @@
 2026-07-09T19:31:10.2651678+02:00 | prompt: CMPILE IT AND MAKE SURE CALIBRAION IS PERFECTED | done: Waiting for this compile test to finish rather than polling further.
 2026-07-09T19:38:51.2803621+02:00 | prompt: CMPILE IT AND MAKE SURE CALIBRAION IS PERFECTED | done: Pushed successfully. Summary: **Compiled clean**: 0 errors, 1 pre-existing warning (unchanged from the old build). The `.ex4`, source, and compile log...
 2026-07-09T21:18:34.9043066+02:00 | prompt: SAVE POINT EVRRYTHING IN THID CONVERSATION | done: Saved on three layers: 1. **`.checkpoint`** (`~/.relay-mailbox/.checkpoint`) — mid-task resume state: step 6 of 7, waiting on you to attach `SLS(30).e...
+2026-07-10T17:18:37.2404445+02:00 | prompt:  | done: Pass 3 is done and relayed back. Summary: **Recalled memory** — TUNGSTEN forge project state, relay architecture, prior feedback on polling/responsive...
