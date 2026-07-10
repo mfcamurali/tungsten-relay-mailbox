@@ -116,11 +116,17 @@
 //|   regime's strategy type need +5pt elevated conviction instead of |
 //|   trading blind. No live attach; demo/ghost validated only.       |
 //|                                                                  |
-//|   © TUNGSTEN 9.43 A7.5  —  QUANT SLS(28)                          |
+//|   © TUNGSTEN 9.44 A7.5  —  QUANT SLS(30)                          |
 //+------------------------------------------------------------------+
 #property strict
 
-#define EA_VERSION "9.43"
+#define EA_VERSION "9.44"
+// LESSON#4 (forge pass 2): every runtime Print/PrintFormat/LogCriticalEvent version banner
+// hardcoded the literal "SLS(24)" independent of the file's actual identity -- confirmed live
+// on 2026-07-09 when a genuinely-recompiled SLS(29).ex4 still printed "SLS(24)" throughout a
+// full calibration run. EA_BUILD_ID is now the single place this identity is derived; bump
+// this one line each pass instead of hand-editing every Print site again.
+#define EA_BUILD_ID "SLS(30)"
 #define DEFAULT_REGIME_THRESHOLD 55.0
 
 
@@ -3174,7 +3180,7 @@ void ComputeRegimeConfidenceScores(MarketStateFeatures &features, int bar) {
             if(_prB8 && features.consecutiveDownBars>=2 && features.consecutiveDownBars<=8 && features.volumeDelta<1.05) s8 += 25;
             if(_pBr8 && features.consecutiveUpBars>=2 && features.consecutiveUpBars<=8 && features.volumeDelta<1.05) s8 += 25;
             if(features.distToSupportATR<1.8 || features.distToResistanceATR<1.8 || features.srStrength>=0.6) s8 += 20;
-            if(MathAbs(features.ema21Angle) > 10.0) s8 += 15;
+            if(MathAbs(features.ema21Angle) > g_ART.ema21AngleTrend) s8 += 15; // WARRANT#8: was hardcoded 10.0 deg
             if(features.angleRecovery) s8 += 25;
             if(E99_HurstExponent(bar,50) > 0.50) s8 += 15;
         }
@@ -4101,9 +4107,16 @@ void MeasureRegimeIC(int startBar, int endBar) {
             n++;
         }
 
-        if(n < 30) {
-            // Insufficient bars for this regime -- default IC 0.05 retained (set above).
-            if(!g_CalibSilent) PrintFormat("  Regime %d/9 %-22s  [skip] %d bars -- IC defaults to 0.05 (equal weight)",
+        // WARRANT#9 (forge pass 2): the Power Doctrine's binding floor (Standing Prohibition #5,
+        // "never update a weight from a cell with n<500") was previously enforced at n<30 here --
+        // 16x too permissive. Live evidence on USDJPY M5 (2026-07-09 calibration): regimes with
+        // n=140-387 (Range, Bearish Reversal, Controlled Pullback) were computing and shrinking
+        // real ICs despite MDE at those sample sizes being 0.20-0.31R (SS-III.3) -- unable to
+        // resolve anything but an absurd edge. Raised to the mandated 500. Regimes below that
+        // now correctly retain the prior/default rather than compute a cell that cannot be
+        // trusted, same as the existing 0.05-default path already did for n<30.
+        if(n < 500) {
+            if(!g_CalibSilent) PrintFormat("  Regime %d/9 %-22s  [skip] %d bars (need 500, Power Doctrine floor) -- IC defaults to 0.05 (equal weight)",
                         regime+1, GetRegimeName(regime), n);
             continue;
         }
@@ -15604,8 +15617,18 @@ struct AdaptiveRegimeThresholds {
     // (+11.9 -> +32.4 against an orthogonal regression-R2 label). Now learned, not assumed.
     double emaDispTrend;   // |price-EMA200| in ATR: displacement that counts as "far" HERE
     double emaSlopeTrend;  // |20-bar change in that displacement|: slope that counts as "moving" HERE
+    // WARRANT#8 (SLS29-FORGE): ema21Angle is already ATR-normalised at the point it's computed
+    // (see the _atrA-normalised block in CalculateMarketFeatures), so the angle itself is
+    // legal Form-3. But the CUT-POINTS applied to it (10.0 deg twice, 12.0 deg once, three
+    // separate un-agreeing magic numbers) were never learned -- exactly the defect this file's
+    // own audit flagged as still OPEN. Measured on 121,026 real EURUSD M5 bars: p93 of
+    // |ema21Angle| = 10.54 deg, which is where both the old 10.0 and 12.0 cut-points actually
+    // sit on this instrument (~p92-p95) -- so p93 preserves current fire-rate/behaviour on this
+    // pass (legality conversion only; Stage 3 resurrection, not this stage, is where the
+    // *rarity* itself would be re-examined).
+    double ema21AngleTrend; // learned p93 of |ema21Angle|, was 10.0/10.0/12.0 hardcoded degrees
 };
-AdaptiveRegimeThresholds g_ART = {false, 0.57,0.43, 18.0,20.0, 8.0, 1.55, 0.65, 0.01, 0.8, 0.3};
+AdaptiveRegimeThresholds g_ART = {false, 0.57,0.43, 18.0,20.0, 8.0, 1.55, 0.65, 0.01, 0.8, 0.3, 10.54};
 
 void AnalyzeScoreDistribution(int barsToAnalyze) {
     // Initialize scoreFrequency array (struct member)
@@ -17736,7 +17759,7 @@ void ManageBreakEven(int index) {
     }
     
     if(shouldSetBreakEven) {
-        double newSL = openPrice + (isBuy ? Point * 5 : -Point * 5); // NonZero(Small.buffer) beyond break-even
+        double newSL = openPrice + (isBuy ? intelligence.atr * 0.125 : -intelligence.atr * 0.125); // WARRANT#1: ATR-ratio buffer beyond break-even (was Point*5, illegal absolute)
         
         if(OrderSelect(tradeManager.activeTrades[(int)index].ticket, SELECT_BY_TICKET)) {
             if(OrderModify(OrderTicket(), OrderOpenPrice(), newSL, OrderTakeProfit(), 0, Yellow)) {
@@ -18341,14 +18364,18 @@ void UpdateTrendAnalysis() {
     marketStructure.trendStrengths[2] = MathAbs(marketStructure.tertiaryTrend);
     
     // Calculate trend angles (slope of moving averages)
+    // WARRANT#7: ATR-normalised denominator (was 5*Point -- illegal absolute, and diverged
+    // from the correctly ATR-normalised ema21Angle/ema8Angle calc elsewhere in this file;
+    // same underlying quantity should never be computed two different ways -- PARITY class)
     if(Bars > 10) {
         double ma20_prev = iMA(Symbol(), 0, 20, 0, MODE_EMA, PRICE_CLOSE, 5);
         double ma50_prev = iMA(Symbol(), 0, 50, 0, MODE_EMA, PRICE_CLOSE, 5);
         double ma200_prev = iMA(Symbol(), 0, 200, 0, MODE_EMA, PRICE_CLOSE, 5);
-        
-        marketStructure.trendAngles[0] = MathArctan((ma200 - ma200_prev) / (5 * Point)) * 180.0 / NonZero(M_PI);
-        marketStructure.trendAngles[1] = MathArctan((ma50 - ma50_prev) / (5 * Point)) * 180.0 / NonZero(M_PI);
-        marketStructure.trendAngles[2] = MathArctan((ma20 - ma20_prev) / (5 * Point)) * 180.0 / NonZero(M_PI);
+        double _atrTA = iATR(Symbol(), 0, 14, 0); if(_atrTA <= 0) _atrTA = Point * 100;
+
+        marketStructure.trendAngles[0] = MathArctan((ma200 - ma200_prev) / (_atrTA * 5)) * 180.0 / NonZero(M_PI);
+        marketStructure.trendAngles[1] = MathArctan((ma50 - ma50_prev) / (_atrTA * 5)) * 180.0 / NonZero(M_PI);
+        marketStructure.trendAngles[2] = MathArctan((ma20 - ma20_prev) / (_atrTA * 5)) * 180.0 / NonZero(M_PI);
     }
 }
 
@@ -18361,13 +18388,15 @@ void UpdateMovingAverageAnalysis() {
     marketStructure.maAlignmentBullish = 0;
     marketStructure.maAlignmentBearish = 0;
     
+    double _atrMA = iATR(Symbol(), 0, 14, 0); if(_atrMA <= 0) _atrMA = Point * 100; // WARRANT#7b (same defect as trendAngles, this function's own copy)
+
     for(int i = 0; i < 10; i++) {
         marketStructure.ma[i] = iMA(Symbol(), 0, maPeriods[i], 0, MODE_EMA, PRICE_CLOSE, 0);
-        
+
         // Calculate MA slopes
         if(Bars > maPeriods[i] + 5) {
             double maPrev = iMA(Symbol(), 0, maPeriods[i], 0, MODE_EMA, PRICE_CLOSE, 5);
-            marketStructure.maSlopes[i] = (marketStructure.ma[i] - maPrev) / NonZero(5 * Point);
+            marketStructure.maSlopes[i] = (marketStructure.ma[i] - maPrev) / NonZero(_atrMA * 5);
         }
         
         // Calculate distance from price
@@ -19491,7 +19520,7 @@ void InitializeEnhancedSystem() {
     InitializeLivePerformance();    // Live WR/perf tracker
     InitializeMonthlyGoal();        // Monthly compounding targets
     InitializeEnhancementSystems(); // HourlyRecalib struct
-    LogCriticalEvent("TUNGSTEN " + EA_VERSION + " A7.5 QUANT SLS(24) - Enhanced with Predictive Intelligence + Outcome Validation Initialized", "INIT");
+    LogCriticalEvent("TUNGSTEN " + EA_VERSION + " A7.5 QUANT " + EA_BUILD_ID + " - Enhanced with Predictive Intelligence + Outcome Validation Initialized", "INIT");
 }
 
 // NEW PREDICTIVE INTELLIGENCE IMPLEMENTATION
@@ -20520,7 +20549,7 @@ void PrintEmptyLine()   { }  // suppressed -- log stays dense
 
 void LogStartup() {
     if(!EnableFriendlyLogs) return;
-    PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT SLS(24) |   %s   |   $%.2f   |   online", Symbol(), AccountBalance());
+    PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT " + EA_BUILD_ID + " |   %s   |   $%.2f   |   online", Symbol(), AccountBalance());
 }
 
 //| State transition logging                                         |
@@ -28897,7 +28926,7 @@ bool RunPhase0SystemChecks() {
     int  totalChecks  = 12;
     bool allPass      = true;
     string sep = "  ------------------------------------─";
-    PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT SLS(24) |   phase 0   |   %s   |   system readiness", Symbol());
+    PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT " + EA_BUILD_ID + " |   phase 0   |   %s   |   system readiness", Symbol());
     Print(sep);
 
     // [1] AutoTrading enabled
@@ -29105,7 +29134,7 @@ int OnInit() {
         PrintFormat("  CAL   |   OnInit   StartingBalance $%.2f far exceeds account $%.2f   |   check input", StartingBalance, AccountBalance());
     }
 
-    PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT SLS(24) |   %s %s   |   $%.2f   |   %d bars",
+    PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT " + EA_BUILD_ID + " |   %s %s   |   $%.2f   |   %d bars",
                 Symbol(), PeriodToString(Period()), AccountBalance(), Bars);
     PrintFormat("  LIVE  |   floor   WR %.0f%%->%.0f%%   |   %d tpd   |   RR %.1f   |   ghost %dL   |   slingshot %.0f%%   |   vol %d",
                 FLOOR_START_WR, FLOOR_LEARNED_WR, FLOOR_TRADES_PER_DAY,
@@ -30487,7 +30516,7 @@ void CalculateDynamicToleranceZones() {
     }
     
     // MINIMUM/MAXIMUM BOUNDS
-    double minTolerance = Point * 5;   // At least 5 pips
+    double minTolerance = currentATR * 0.125;   // WARRANT#2: ATR-ratio (was Point*5 -- comment said "5 pips" but on a 5-digit broker Point*5 is 0.5 pip, a real SCALE bug the comment never caught)
     double maxTolerance = g_CurrentRange.rangeWidth * 0.15;  // Max 15% of range
     
     g_CurrentRange.exactZoneTolerance = MathMax(minTolerance, MathMin(maxTolerance, g_CurrentRange.exactZoneTolerance));
@@ -30603,7 +30632,9 @@ void SelectOptimalRangeStrategy() {
     }
     
     // SAFETY: Verify range width is valid before division
-    if(g_CurrentRange.rangeWidth <= 0 || g_CurrentRange.rangeWidth < Point * 10) {
+    // WARRANT#3: ATR-ratio (was Point*10, illegal absolute)
+    double _atrRW = iATR(Symbol(), 0, 14, 0); if(_atrRW <= 0) _atrRW = Point * 100;
+    if(g_CurrentRange.rangeWidth <= 0 || g_CurrentRange.rangeWidth < _atrRW * 0.25) {
         g_CurrentRange.recommendedStrategy = "SIT_OUT";
         g_CurrentRange.hasOpportunity = false;
         g_CurrentRange.isValidEntry = false;
@@ -30962,8 +30993,10 @@ bool ExecuteRangeTradeIfValid() {
     double stopDistance = MathAbs(entry - stopLoss);
     
     // SAFETY: Validate stop distance
-    if(stopDistance < Point * 10) {
-        PrintFormat("  range trade error   |   stop %.0f points too small   |   min 10 required", stopDistance / Point);
+    // WARRANT#4: ATR-ratio (was Point*10, illegal absolute)
+    double _atrSD = iATR(Symbol(), 0, 14, 0); if(_atrSD <= 0) _atrSD = Point * 100;
+    if(stopDistance < _atrSD * 0.25) {
+        PrintFormat("  range trade error   |   stop %.0f points too small   |   min 0.25 ATR required", stopDistance / Point);
         return false;
     }
     
@@ -32431,8 +32464,8 @@ double ART_Pctile(double &arr[], int n, double p) {
 void ART_CalibrateStructural(int barsToAnalyze) {
     int maxBars = MathMin(barsToAnalyze, Bars - 260);
     if(maxBars < 500) return;                       // keep the safe presets
-    double dispArr[]; double slopeArr[];
-    ArrayResize(dispArr, maxBars); ArrayResize(slopeArr, maxBars);
+    double dispArr[]; double slopeArr[]; double angleArr[]; // WARRANT#8: angleArr added, same bar walk
+    ArrayResize(dispArr, maxBars); ArrayResize(slopeArr, maxBars); ArrayResize(angleArr, maxBars);
     int cnt = 0;
     for(int b = 250; b < 250 + maxBars && b < Bars - 1; b++) {
         double a = iATR(Symbol(), 0, 14, b);
@@ -32447,16 +32480,32 @@ void ART_CalibrateStructural(int barsToAnalyze) {
         double dPrev = (iClose(Symbol(), 0, bPrev) - ema200Prev) / aPrev;
         dispArr[cnt]  = MathAbs(dNow);
         slopeArr[cnt] = MathAbs(dNow - dPrev);      // 20-bar change in displacement
+        // WARRANT#8: same ema21Angle formula as CalculateMarketFeatures's ATR-normalised block
+        int b21 = b + 21;
+        if(b21 < Bars - 1) {
+            double _atrA21 = MathMax(a, MarketInfo(Symbol(), MODE_POINT) * 5);
+            double e21now  = iMA(Symbol(), 0, 21, 0, MODE_EMA, PRICE_CLOSE, b);
+            double e21prev = iMA(Symbol(), 0, 21, 0, MODE_EMA, PRICE_CLOSE, b21);
+            double ns21 = (e21now - e21prev) / (_atrA21 * 21);
+            angleArr[cnt] = MathAbs(MathArctan(ns21) * 57.29577951);
+        } else {
+            angleArr[cnt] = 0;
+        }
         cnt++;
     }
     if(cnt < 500) return;
-    ArrayResize(dispArr, cnt); ArrayResize(slopeArr, cnt);
-    ArraySort(dispArr); ArraySort(slopeArr);
+    ArrayResize(dispArr, cnt); ArrayResize(slopeArr, cnt); ArrayResize(angleArr, cnt);
+    ArraySort(dispArr); ArraySort(slopeArr); ArraySort(angleArr);
     g_ART.emaDispTrend  = MathMax(0.50, MathMin(8.00, ART_Pctile(dispArr,  cnt, 0.60)));
     g_ART.emaSlopeTrend = MathMax(0.20, MathMin(4.00, ART_Pctile(slopeArr, cnt, 0.30)));
+    // WARRANT#8: p93, clamped -- replaces the hardcoded 10.0/10.0/12.0 degree cut-points.
+    // Bounds [4.0, 15.0] deg derived from the real measured range (mean 4.72, max 27.3 deg
+    // on 121k EURUSD-M5 bars); a degenerate distribution (e.g. a dead/flat instrument) cannot
+    // push this outside a sane confirming-vote zone.
+    g_ART.ema21AngleTrend = MathMax(4.0, MathMin(15.0, ART_Pctile(angleArr, cnt, 0.93)));
     if(!g_CalibSilent)
-        PrintFormat("  ART   |   structural gates learned from %d bars   |   disp>%.2f ATR (p60)   |   slope>%.2f ATR (p30)",
-            cnt, g_ART.emaDispTrend, g_ART.emaSlopeTrend);
+        PrintFormat("  ART   |   structural gates learned from %d bars   |   disp>%.2f ATR (p60)   |   slope>%.2f ATR (p30)   |   ema21Angle>%.2f deg (p93)",
+            cnt, g_ART.emaDispTrend, g_ART.emaSlopeTrend, g_ART.ema21AngleTrend);
 }
 
 // Sampled in Phase 0 alongside the score distribution (same bar walk, no extra pass).
@@ -32516,9 +32565,9 @@ int ClassifyBarToRegime_Core(MarketStateFeatures &features, int bar) {
           bool _atL8=(features.distToSupportATR<1.8||features.distToResistanceATR<1.8||features.srZoneQuality>=22.0);
           double _r8=iRSI(Symbol(),0,14,PRICE_CLOSE,bar);
           bool _rOK8=(_r8>0&&_r8<200)&&((_bPB8&&_r8>35&&_r8<68)||(_sPB8&&_r8>32&&_r8<65));
-          // Angle gate for R8: primary trend must still have meaningful angle (>10°)
-        // If ema21Angle has collapsed below 10°, the trend is spent - exhaust (7)
-        bool _angleR8ok = (MathAbs(features.ema21Angle) > 10.0);
+          // Angle gate for R8: primary trend must still have meaningful angle (learned, WARRANT#8)
+        // If ema21Angle has collapsed below the learned cut, the trend is spent - exhaust (7)
+        bool _angleR8ok = (MathAbs(features.ema21Angle) > g_ART.ema21AngleTrend);
         bool _pbAngleR8 = (features.ema21Angle > 0) ? (features.ema8Angle < features.ema21Angle) :
                                                         (features.ema8Angle > features.ema21Angle);
         // Wave angle recovery: Image 1 pattern — primary wave, shallow pullback, resumption
@@ -32692,7 +32741,7 @@ int ClassifyBarToRegime_Core(MarketStateFeatures &features, int bar) {
     if(h4Bullish || h4Bearish)                                              _confirmVotes++;
     if(diStrongBull || diStrongBear)                                        _confirmVotes++;
     if(features.consecutiveHHHL >= 3 || features.consecutiveLLLH >= 3)      _confirmVotes++;
-    if(MathAbs(features.ema21Angle) > 12.0)                                 _confirmVotes++;
+    if(MathAbs(features.ema21Angle) > g_ART.ema21AngleTrend)                _confirmVotes++; // WARRANT#8: was hardcoded 12.0 deg
     if(hurstTrending)                                                       _confirmVotes++;
 
     // Trend regimes allowed ONLY when the macro anchor is displaced AND sloping AND at
@@ -41303,7 +41352,7 @@ void DetectAndConfigureTimeframe() {
     }
     
     // Clean summary instead of verbose listing
-    Print("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT SLS(24) |   ", Symbol(), "   |   ", EnumToString((ENUM_TIMEFRAMES)currentPeriod));
+    Print("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT " + EA_BUILD_ID + " |   ", Symbol(), "   |   ", EnumToString((ENUM_TIMEFRAMES)currentPeriod));
     // System startup complete - calibration pending
 }
 
@@ -41956,9 +42005,11 @@ bool ValidateMTFAlignment(int dir) {
         bool strongReversal = (candle == "HAMMER" || candle == "SHOOT_STAR");
         double rsi = iRSI(_Symbol, PERIOD_CURRENT, 14, PRICE_CLOSE, 0);
         bool extreme = ((dir > 0 && rsi < 30) || (dir < 0 && rsi > 70));
-        double pipDist = Point * 10;
-        bool nearSR = ((dir > 0 && g_SRContext.distToSupport < pipDist * 5) ||
-                       (dir < 0 && g_SRContext.distToResistance < pipDist * 5));
+        // WARRANT#5: ATR-ratio (was Point*10 * 5, illegal absolute)
+        double _atrMTF = iATR(_Symbol, PERIOD_CURRENT, 14, 0); if(_atrMTF <= 0) _atrMTF = Point * 100;
+        double srProxThreshold = _atrMTF * 1.25;
+        bool nearSR = ((dir > 0 && g_SRContext.distToSupport < srProxThreshold) ||
+                       (dir < 0 && g_SRContext.distToResistance < srProxThreshold));
         if((strongReversal && extreme) || (extreme && nearSR)) {
             g_MTFContext.isAligned = true;
         }
@@ -44667,7 +44718,7 @@ double RangingRegime_MultiStrategy() {
     double low2 = iLow(_Symbol, Period(), 2);
     
     if(low0 != EMPTY_VALUE && low1 != EMPTY_VALUE && low2 != EMPTY_VALUE) {
-        bool doubleBottom = (MathAbs(low0 - low2) < 5 * Point && low1 > low0);
+        bool doubleBottom = (MathAbs(low0 - low2) < intelligence.atr * 0.125 && low1 > low0); // WARRANT#6: ATR-ratio (was 5*Point, illegal absolute)
         if(doubleBottom && srDistance < 10) {
             boost = MathMax(boost, 8);
         }
@@ -47913,7 +47964,7 @@ void OnTick()
     // First call announcement
     static bool firstTickLogged = false;
     if(!firstTickLogged) {
-        PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT SLS(24) |   %s   |   $%.2f   |   %s", Symbol(), AccountBalance(),
+        PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT " + EA_BUILD_ID + " |   %s   |   $%.2f   |   %s", Symbol(), AccountBalance(),
     !g_Calibration.isComplete           ? "calibrating..." :
     !g_Calibration.warmupComplete        ? StringFormat("warmup — min lot — %d/10", g_Calibration.liveTrades) :
     !g_Calibration.scalingComplete       ? StringFormat("scaling — 50pct risk — %d/50", g_Calibration.liveTrades) :
@@ -48006,10 +48057,10 @@ void OnTick()
         }
         else if(initPhase == 8) {
             if(g_WeightsOptimized)
-                PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT SLS(24) |   %s   |   $%.0f   |   armed   |   calibrated WR %.0f%%",
+                PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT " + EA_BUILD_ID + " |   %s   |   $%.0f   |   armed   |   calibrated WR %.0f%%",
                             Symbol(), AccountBalance(), g_Calibration.baselineWR * 100);
             else
-                PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT SLS(24) |   %s   |   $%.0f   |   calibrating...",
+                PrintFormat("  TUNGSTEN " + EA_VERSION + " A7.5 QUANT " + EA_BUILD_ID + " |   %s   |   $%.0f   |   calibrating...",
                             Symbol(), AccountBalance());
             
             systemInitialized = true;  // Mark progressive init complete
