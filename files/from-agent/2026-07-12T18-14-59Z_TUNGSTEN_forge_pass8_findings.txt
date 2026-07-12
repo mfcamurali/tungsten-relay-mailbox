@@ -1,0 +1,90 @@
+TUNGSTEN FORGE — PASS 8 FINDINGS
+Reinforcement / coherence pass: EA <-> all 9 companion indicators
+Generated: 2026-07-12T16:13:31Z
+Base build: TUNGSTEN_9.51_A7.5_QUANT_SLS(37).mq4  (UNCHANGED this pass — see below)
+
+REQUEST
+Manuel asked for a reinforcement pass across the whole system, including all indicators in
+their MT4 folders, to ensure full system cohesion and coherence at every level — intact logic,
+all interfaces in sync, dense cross-checking, not a single shallow pass.
+
+SCOPE
+Focused specifically on EA<->indicator coherence end-to-end (the 51 iCustom() call sites and
+the 9 companion indicators: ART, ATM, CAN, ETF, KTF, PRL, SPG, SQE, VRC). Deliberately left
+untouched and unfixed: hypothesis #3 (Phase 3B's 562,500-combo search still has no
+multiple-testing correction / walk-forward — open since forge pass 2) and CATREC's
+regime-preservation gate (~line 46335, trades<5 -> preserveRegimes=0.3 — flagged pass 7 for
+Manuel's own judgment call, not a unilateral fix).
+
+WHAT WAS CHECKED (four dimensions, all 9 indicators)
+
+1. PARAMETER FIDELITY — every iCustom() call site's argument list (order, count, values) was
+   matched against each indicator's current `input` block. All 9: 100% match, zero drift, even
+   across the 3 indicators touched by prior passes (ATM's offset-clamp fix, VRC's composite-
+   ratio fix, SPG's session-window fix).
+
+2. BUFFER SEMANTICS — every buffer index the EA reads was cross-checked against each
+   indicator's own SetIndexBuffer() mapping. All 9: exact match (e.g. VRC buf1=composite vol
+   ratio buf4=regime state; SPG buf1=vwap buf4=inSession; ATM buf0/1=EMA buf4/5=arrows
+   buf6=cloud strength; SQE buf6=CompositeScore; CAN buf5=SigScore; KTF buf5=variance/trust;
+   PRL buf8=BiasScore; ART buf5=OuterDist). Zero buffer-index drift found.
+
+3. CALIBRATION/LIVE PARITY — line-by-line diff of IE_Update() (live path, fixed shift=1) vs
+   IE_ReadAtBar(sh,...) (calibration path, parameterized shift). Identical transformation logic
+   for all 9 indicators, INCLUDING the two most recent fixes (VRC's amplitude reading, SPG's
+   symbol-aware session window) — both are correctly mirrored in BOTH code paths, not just the
+   live one. This is the most important confirmation of the pass: it directly verifies those
+   two prior fixes did not silently diverge between calibration and live, which is exactly the
+   failure mode the project's "Parity Invariant" doctrine exists to catch.
+
+4. SCALE / STRUCTURAL — grepped all 9 indicator files for Point*N absolute constants: zero
+   remaining illegal sites (the one historical instance, ATM's label-offset clamps, is still
+   correctly fixed as an ATR-ratio). Brace/paren balance verified on all 9 files. Recompiled all
+   9 unchanged: still 0 errors / 0 warnings each, identical to the last confirmed baseline.
+
+ONE FALSE LEAD, INVESTIGATED AND RULED OUT
+ComputeEntryConviction() (a live-only pre-trade gate) calls IE_Update() (MT4 shift=1, last
+closed bar) and then IE_KTFTrust(0) (literal shift=0). This looked like an internal
+shift-convention mismatch. Checked against the codebase's own documented convention in
+GetIndicatorContribution() ("if sh==0: LIVE — use the live ensemble snapshot") — sh=0 is an
+established, deliberate sentinel meaning "live/current" throughout this exact subsystem, not a
+literal MT4 bar-shift argument. IE_KTFTrust(0) is using that same convention correctly. No fix
+needed — confirmed against precedent, not assumed.
+
+RESULT: NO NEW DEFECT FOUND
+This pass filed no Change Warrant and made no source edit — a deliberate, reported outcome, not
+an omission. Standing project doctrine requires a warrant with a real, falsifiable prediction
+before any line is touched; manufacturing a version bump or a cosmetic edit purely to "show a
+pass happened" would be exactly the kind of unearned change the project's own discipline exists
+to prevent. The honest result of a dense audit is sometimes "still coherent" — and that itself
+is valuable: this is the second time the full indicator-integration layer has been swept (once
+by pass 6, now re-verified after 3 intervening indicator edits) and it came back clean both
+times.
+
+VERSION STATUS
+No version bump this pass. EA remains TUNGSTEN_9.51_A7.5_QUANT_SLS(37).mq4, still the same
+compiled build (0 errors, 1 pre-existing warning — the long-standing "possible use of
+uninitialized variable sesMap"). All 9 indicators remain at their last-shipped versions,
+recompiled clean (0/0 each) to reconfirm no regression.
+
+STILL OPEN / DEFERRED (unchanged by this pass)
+- 21 Change Warrants shipped across 7 prior passes — NONE yet validated against a completed
+  live calibration run. This remains the single largest gap in the whole project: nothing has
+  been measured against reality since before pass 2. The market being closed for an extended
+  stretch has repeatedly blocked this.
+- Hypothesis #3: Phase 3B's large weight-search still lacks a multiple-testing correction /
+  walk-forward validation. Still the leading candidate for the next substantive (not audit-only)
+  pass.
+- CATREC's regime-preservation floor: needs Manuel's explicit call on intent before any change.
+- The broader mandate roadmap (win-intelligence engines, remaining Edge Doctrine lenses,
+  reverse-mining, retrospective intelligence, honesty dashboard) — untouched, unchanged from
+  prior passes' own roadmap notes.
+
+RECOMMENDED NEXT ACTION
+Unchanged from pass 7's own recommendation: attach SLS(37) to a live/demo chart once the market
+is open and let one full calibration run complete undisturbed. That single run would
+retroactively validate or falsify warrants #9-21 all at once — more valuable than any further
+static-analysis pass, including this one.
+
+Ledger updated: forge_ledger.json now includes "pass_8" and
+"did_this_pass_improve_the_agent_pass_8" entries with the full detail behind this summary.
