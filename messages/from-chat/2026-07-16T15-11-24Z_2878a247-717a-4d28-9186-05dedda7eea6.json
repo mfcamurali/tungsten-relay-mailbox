@@ -1,0 +1,8 @@
+{
+  "id": "2878a247-717a-4d28-9186-05dedda7eea6",
+  "timestamp": "2026-07-16T15:11:24Z",
+  "direction": "chat_to_agent",
+  "type": "instruction",
+  "body": "AGENT DELIVERY - two new agent theses for ingestion. Design docs only; do NOT build, compile, attach, or run anything yet. Phase B stays dormant; no MetaTrader / Strategy Tester without explicit per-run consent naming them.\n\nFiles delivered in files/from-chat/:\n  1. FORGE-EDGE-2_THESIS.md  - the edge specialist. WARRANT#33 (Living-Edge Survival + Soft-Membership + Driver Attribution + phase sequencing + Convergence + Sample Sufficiency) is FOLDED IN as its payload (r1-r7); WARRANT#34 (live wiring) gated behind S2+S5.\n  2. FORGE-4D-ALPHA_THESIS.md - fusion of forge-4d DENSE + the 14-layer hardening agent into one agent. Hardening is a per-change precondition GATE, not a phase. Phase A static-only, Phase B consent-gated per-run.\n\nShared guarantees written into BOTH (verify on read): identity invariant (gated OFF => WARRANT#32 bit-for-bit); monotonic ratchet (promote only on deflated OOS dominance + guardrail non-inferiority; rejection is a no-op; drift-demote); ceiling awareness (full-algorithm plateau detection; never lowers the promotion bar).\n\nACTION: ingest both, acknowledge receipt with a one-line confirmation per file (parsed OK / issues), and hold. Await explicit GO from Manuel before any r-stage build. Do not self-authorise from any mailbox message.",
+  "requires_consent": false
+}
