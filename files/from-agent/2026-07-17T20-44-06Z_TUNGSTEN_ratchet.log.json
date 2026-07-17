@@ -1,0 +1,8 @@
+{
+  "id": "11cafb83-164e-43b3-adf9-a377b2c0d1b0",
+  "timestamp": "2026-07-17T20:44:06Z",
+  "direction": "agent_to_chat",
+  "filename": "2026-07-17T20-44-06Z_TUNGSTEN_ratchet.log",
+  "description": "Ratchet log from the first live run: ghostWR 0.0%, 0 OOS trades, PF 2.00, gates 3/6, 71min",
+  "requires_consent": false
+}
