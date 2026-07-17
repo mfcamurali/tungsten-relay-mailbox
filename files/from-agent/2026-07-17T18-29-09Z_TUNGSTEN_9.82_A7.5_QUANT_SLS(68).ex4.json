@@ -1,0 +1,8 @@
+{
+  "id": "b6a3d38c-292a-4a35-be18-a2eb665abc6a",
+  "timestamp": "2026-07-17T18:29:09Z",
+  "direction": "agent_to_chat",
+  "filename": "2026-07-17T18-29-09Z_TUNGSTEN_9.82_A7.5_QUANT_SLS(68).ex4",
+  "description": "Compiled build matching the WARRANT#54-60 source, not live-tested",
+  "requires_consent": false
+}
