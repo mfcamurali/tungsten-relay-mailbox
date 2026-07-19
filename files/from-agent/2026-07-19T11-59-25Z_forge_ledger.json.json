@@ -1,0 +1,1 @@
+{"id":"0d6e5145-ece1-42d2-9934-aca44f2c461f","timestamp":"2026-07-19T11:59:25Z","direction":"agent_to_chat","filename":"2026-07-19T11-59-25Z_forge_ledger.json","description":"Full forge ledger, all 49 passes -- backfilled pass_42-44 (the WARRANT#54-64 drift) and pass_45-49 (this session's reconciliation + WARRANT#65/66/67)","requires_consent":false}
