@@ -1,4 +1,3 @@
-2026-07-17T19:51:27.8194826+02:00 | prompt:  | done: (alive, computing)
 2026-07-17T19:52:18.1215974+02:00 | prompt:  | done: (r8 wide-scan intermediate — normal pattern)
 2026-07-17T19:52:28.2760397+02:00 | prompt:  | done: (alive, computing)
 2026-07-17T19:53:19.0141175+02:00 | prompt:  | done: (r8 scan-mid unchanged from wide-scan — same pattern as other regimes, will resolve at global-random)
@@ -198,3 +197,4 @@
 2026-07-23T22:50:38.6972113+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Healthy, no issues.
 2026-07-23T22:51:48.3165175+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Twelve minutes now with zero new log lines, though CPU is still climbing steadily (2958s total, ~61s/interval — not idle). This is different from the ...
 2026-07-23T22:52:28.8262438+02:00 | prompt: RUN ALL PREVIOUSLY PLSNNED UPGRSDES WIRH LATEST LOGS INCLUDED TOO. 1000 POSSIBLE WAYS OF GETTING HIGHER RESULTS WTH 1000... | done: A separator line finally appeared — likely marking the transition out of bracket-recheck into Phase 4. Watching for what comes next.
+2026-07-23T23:02:29.5240684+02:00 | prompt: RUN ALL PREVIOUSLY PLSNNED UPGRSDES WIRH LATEST LOGS INCLUDED TOO. 1000 POSSIBLE WAYS OF GETTING HIGHER RESULTS WTH 1000... | done: ## Summary You asked me to audit the run's own log for premature stops — I did, and found something real: **r9 Controlled Pullback, the single best re...
