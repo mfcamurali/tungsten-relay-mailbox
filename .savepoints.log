@@ -1,21 +1,3 @@
-2026-07-17T19:46:42.7414934+02:00 | prompt: why is memlry 3999mb whats tha mean | done: (r4 scan-mid, unchanged from wide-scan — likely a sparse regime, will resolve at global-random stage like r2 did)
-2026-07-17T19:46:52.2907393+02:00 | prompt:  | done: (fine-scan same again, waiting for global-random)
-2026-07-17T19:47:03.2088250+02:00 | prompt:  | done: (r4 global-random jumped to 40k/50k already, WR steady — fast regime)
-2026-07-17T19:47:08.7719146+02:00 | prompt:  | done: r4 done, now r5 Range (budget 27%) — five of nine regimes through, all clean so far.
-2026-07-17T19:47:28.0471590+02:00 | prompt:  | done: (r5 fine-scan intermediate — progressing)
-2026-07-17T19:47:32.4965431+02:00 | prompt:  | done: (r5 global-random converged fast — 66.7% train, 63.2% val, consistent)
-2026-07-17T19:47:37.2943132+02:00 | prompt:  | done: r5 done, now r6 Choppy — six of nine regimes complete.
-2026-07-17T19:48:26.8415632+02:00 | prompt:  | done: (alive, computing)
-2026-07-17T19:48:38.1222367+02:00 | prompt:  | done: (r6 wide-scan intermediate — normal pattern)
-2026-07-17T19:49:19.0697582+02:00 | prompt:  | done: (r6 scan-mid unchanged — will likely resolve at global-random like previous sparse-pattern regimes)
-2026-07-17T19:49:27.9807329+02:00 | prompt:  | done: (alive, computing)
-2026-07-17T19:49:52.3194221+02:00 | prompt:  | done: (r6 fine-scan same as before — waiting on global-random)
-2026-07-17T19:50:31.6257494+02:00 | prompt:  | done: (new stage: r6 hit a weight ceiling during search and is auto-extending the range to 4.0 to check for a better fit beyond the original grid — legitima...
-2026-07-17T19:50:35.7815759+02:00 | prompt:  | done: (r6 global-random now underway, 10k/50k)
-2026-07-17T19:50:39.3869206+02:00 | prompt:  | done: (30k/50k already — fast pace, past the danger point again)
-2026-07-17T19:50:43.8503586+02:00 | prompt:  | done: (40k/50k, stable)
-2026-07-17T19:50:48.1774961+02:00 | prompt:  | done: r6 done, now r7 Noise (budget 31%) — seven of nine regimes complete.
-2026-07-17T19:50:54.7518344+02:00 | prompt:  | done: r7 Noise resolved almost instantly (likely a sparse-regime fallback rather than a full search) — now r8 Building Momentum, eight of nine regimes reach...
 2026-07-17T19:51:27.8194826+02:00 | prompt:  | done: (alive, computing)
 2026-07-17T19:52:18.1215974+02:00 | prompt:  | done: (r8 wide-scan intermediate — normal pattern)
 2026-07-17T19:52:28.2760397+02:00 | prompt:  | done: (alive, computing)
@@ -198,3 +180,21 @@
 2026-07-23T22:33:30.0256802+02:00 | prompt: WITH ALL LOGS ALREADY READ, STRATEGIZE ON WHAT COULD HAVE IMPROVED T GET BETTER RESULTS. WHAT METHODOLOGY, COMPETENCE. I... | done: Healthy, r8 in progress.
 2026-07-23T22:34:35.1969276+02:00 | prompt: WITH ALL LOGS ALREADY READ, STRATEGIZE ON WHAT COULD HAVE IMPROVED T GET BETTER RESULTS. WHAT METHODOLOGY, COMPETENCE. I... | done: r8 at scan-wide, 58.0% WR. Healthy.
 2026-07-23T22:35:38.6864153+02:00 | prompt: WITH ALL LOGS ALREADY READ, STRATEGIZE ON WHAT COULD HAVE IMPROVED T GET BETTER RESULTS. WHAT METHODOLOGY, COMPETENCE. I... | done: r8 at scan-mid, holding 58.0%. Healthy.
+2026-07-23T22:38:38.3684251+02:00 | prompt: SEND SLL PROGRESD ANF LSTEST FILE AND LOG AMALYSIS THIS WHOLE CHST COMPSCT IT INTO A XIP FILR AND SEND TO MSIL | done: Session archive sent to your mailbox — `tungsten_session_2026-07-23.zip`, with the full session summary, current source/ex4, ledger, watchdog scripts,...
+2026-07-23T22:38:45.7124610+02:00 | prompt: SEND SLL PROGRESD ANF LSTEST FILE AND LOG AMALYSIS THIS WHOLE CHST COMPSCT IT INTO A XIP FILR AND SEND TO MSIL | done: Phase 3B complete — all 9 regimes done, **1/9 with validated weights** (r9 Controlled Pullback, 77.4% WR). This is the critical transition point — mov...
+2026-07-23T22:39:32.9470860+02:00 | prompt: SEND SLL PROGRESD ANF LSTEST FILE AND LOG AMALYSIS THIS WHOLE CHST COMPSCT IT INTO A XIP FILR AND SEND TO MSIL | done: Healthy, Phase 4 likely in progress now.
+2026-07-23T22:39:51.8911703+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: No — I'm running as **Sonnet 5** (`claude-sonnet-5`), not Fable 5. I can't switch models myself from within a conversation; that's a session-level set...
+2026-07-23T22:40:04.1935867+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Interesting — first real firing of the bracket-recheck mechanism (WARRANT#56/80): r2 Strong Bear's fixed default bracket (40.0% WR) massively outperfo...
+2026-07-23T22:40:36.8754996+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Healthy, still processing bracket-recheck across regimes.
+2026-07-23T22:41:39.9219835+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Healthy, no issues.
+2026-07-23T22:42:34.3636706+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Healthy, still steady.
+2026-07-23T22:43:36.7130637+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Healthy, no issues — Phase 4 transition likely imminent.
+2026-07-23T22:44:39.0497546+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Healthy, no issues.
+2026-07-23T22:45:46.1044496+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Good news: CPU is climbing steadily (~61s per 60s interval — essentially continuous compute, not idle). This isn't a stall like before; it's actively ...
+2026-07-23T22:46:36.4642215+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Still climbing steadily, healthy.
+2026-07-23T22:47:39.8483862+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Healthy, steady progress.
+2026-07-23T22:48:37.0175400+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Still climbing steadily, healthy. Bracket-recheck across all 9 regimes (each requiring its own backtest-style scan) plausibly explains the quiet stret...
+2026-07-23T22:49:36.8656170+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Healthy, still active.
+2026-07-23T22:50:38.6972113+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Healthy, no issues.
+2026-07-23T22:51:48.3165175+02:00 | prompt: I HOPE YOURE USING FABLE 5 | done: Twelve minutes now with zero new log lines, though CPU is still climbing steadily (2958s total, ~61s/interval — not idle). This is different from the ...
+2026-07-23T22:52:28.8262438+02:00 | prompt: RUN ALL PREVIOUSLY PLSNNED UPGRSDES WIRH LATEST LOGS INCLUDED TOO. 1000 POSSIBLE WAYS OF GETTING HIGHER RESULTS WTH 1000... | done: A separator line finally appeared — likely marking the transition out of bracket-recheck into Phase 4. Watching for what comes next.
