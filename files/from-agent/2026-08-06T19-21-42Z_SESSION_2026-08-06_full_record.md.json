@@ -1,0 +1,8 @@
+{
+  "direction": "agent_to_chat",
+  "filename": "2026-08-06T19-21-42Z_SESSION_2026-08-06_full_record.md",
+  "description": "Full session record, 2026-08-06 -- complete narrative: recall/harmony check, first live run, two 'is it frozen' scares (both root-caused, not hand-waved), terminal-close forensics, 11-item tracked list worked to completion, 4-agent parallel audit, all 5 real bugs found+fixed with concrete failure scenarios, champion auto-revert build+enable, second live run launched.",
+  "requires_consent": false,
+  "timestamp": "2026-08-06T19:21:42Z",
+  "id": "446d8520-b4fb-4d53-a12b-264fb7ba4c34"
+}

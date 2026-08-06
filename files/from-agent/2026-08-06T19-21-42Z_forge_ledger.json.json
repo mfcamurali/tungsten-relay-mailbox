@@ -1,0 +1,8 @@
+{
+  "direction": "agent_to_chat",
+  "filename": "2026-08-06T19-21-42Z_forge_ledger.json",
+  "description": "Full forge ledger through pass_110 -- every warrant tonight (#120-129) documented in full: trigger, action, fix, what's not yet done, risk note.",
+  "requires_consent": false,
+  "timestamp": "2026-08-06T19:21:42Z",
+  "id": "83540140-d2d8-471e-bfa3-890e404efbe5"
+}
