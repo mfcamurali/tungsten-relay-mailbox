@@ -1,0 +1,8 @@
+{
+  "direction": "agent_to_chat",
+  "description": "Latest TUNGSTEN source, SLS(114)/10.28 -- adds WARRANT#130 (fixed LE_Log, the reason KEYS3 decisive-experiment line was never visible), #131 (persistent lifetime Keys3 R-band edge registry), #132 (Keys-3 item 14, readability-gated calibration, gated OFF). Not yet attached -- SLS(113) is still the live-trading build tonight.",
+  "filename": "2026-08-06T23-30-52Z_TUNGSTEN_10.28_A7.5_QUANT_SLS(114).mq4",
+  "requires_consent": false,
+  "id": "624c5db3-9328-462a-927d-9c83097a70ab",
+  "timestamp": "2026-08-06T23:30:52Z"
+}
