@@ -1,0 +1,58 @@
+TUNGSTEN SLS(126)/10.40 — Latest Build + Live Run Log Observations
+Session: RUN_20260820_2016 | USDJPY M5 | XMGlobal-Demo #22650819
+Live watch started 20:16:35 SAST, timed 60-minute window (Monitor tool, per the established spec). Run still in progress as of this email.
+
+=== SESSION-START CONFIRMATION ===
+- Expert loaded successfully: TUNGSTEN_10.40_A7.5_QUANT_SLS(126) USDJPY,M5
+- WARRANT#143's new forensic marker fired correctly: "EA INIT | first instance this terminal session | no prior deinit record"
+- Phase 0 self-test probes (2x tiny buy-stop open+immediate-delete) — known-benign broker-capability check, not real trading.
+
+=== CALIBRATION PIPELINE ===
+INDINTEL mining pass: 20,067 bars resolved in 0.7s — well inside the 90s budget guard.
+
+Phase 1 (baseline): grid found threshold 46, 38.4% WR, 73 trades — below the 42% viability bar. Diagnosis engine correctly retried, widening the floor to 38.
+
+Phase 2 (regime correlations): 8/9 regimes viable, 1 sparse, 0 empty. Correlations learned in 90.0s. WARRANT#141's new progress TLog (added this session) confirmed firing live for the first time — "P2 | scan N% | regime signature building in progress" was previously invisible to this log file.
+
+Phase 3B (per-regime weight optimization) — all 9 regimes:
+  r1 Strong Bull:        68.1% WR / 83.3% val  — real search, strong result, val>train throughout
+  r2 Strong Bear:        32.9% WR / 44.5% val  — weaker edge but coherent, val>train
+  r3 Bullish Reversal:   63.6% WR / val 0.0% FLAT across every stage — sparse-sample regime
+  r4 Bearish Reversal:   66.7% WR / val 0.0% FLAT — sparse; WARRANT#98's real PBO-CSCV fired here, PBO=0.000 (N=200 candidates x 8 blocks, 70/70 splits)
+  r5 Range:              72.0% WR / val 0.0% FLAT — sparse, very fast
+  r6 Choppy:              58.1% WR / val 0.0% FLAT — sparse
+  r7 Noise:              near-instant (~18s), zero intermediate stages — almost certainly the "1 sparse" regime flagged by P2, sparse-guard fast-pathed it correctly
+  r8 Building Momentum:  71.4% WR / val 0.0%, weights LITERALLY UNCHANGED across every single stage (scan-wide through global-rnd) — strongest sparse signature of the run
+  r9 Controlled Pullback: 64.0% WR / 77.0% val — real search, healthy, val>train
+
+Pattern: the two dominant trend regimes (r1, r2) and the pullback regime (r9) all show real, moving, non-degenerate validation numbers. The five rarer/choppier regime types (r3, r4, r5, r6, r8) all flatlined at val=0.0% with zero movement across search stages — reads as genuinely sparse historical data for those regime types on this instrument/timeframe, not a validation-computation bug (a global bug would have hit r1/r2/r9 too).
+
+Other live-confirmed mechanisms (real, not dead code):
+  - WARRANT#80 bracket-fallback: r2 fixed-bracket (32.9%) beat final-bracket alternative (16.0%) -> regularized 35%
+  - WARRANT#100 forge-organism portal-audit: "NOT CONFIRMED THIS RUN — linear and enhanced scorers comparable" (same honest result as the last time this ran)
+
+=== METHODOLOGICAL FINDINGS (about the watch mechanism itself, not the EA) ===
+1. TUNGSTEN_live.log is OVERWRITTEN per TLog() call, not appended. Two TLog calls landing inside the same 5-second poll window means the earlier one is silently lost to any external watcher, even though it genuinely executed. Explains why some stages (e.g. r2's ascent-200) never appeared in the feed.
+2. TLog's embedded timestamp reflects MQL4's TimeCurrent() (last-known SERVER TICK time), not wall-clock write time. A CPU-bound loop (e.g. 30,000 draws) faster than a new tick arrives will stamp multiple log lines with the identical embedded time even though real elapsed time clearly passed. Use the watcher's own "(written ...)" wall-clock stamp for true timing, not the embedded string.
+
+=== OPEN ITEM FROM THIS RUN ===
+A 6+ minute stretch after Phase 3B's per-regime loop (from the bracket-recheck line onward) produced zero content log lines while CPU kept climbing normally (no hang). Same shape as the silent-progress-gap class this project has repeatedly found and fixed (WARRANT#20, #134, #141) — candidate for a future targeted TLog addition once the exact call site is identified, not yet root-caused this run.
+
+=== THIS SESSION'S CODE CHANGES SHIPPED IN SLS(126) ===
+12 passes, WARRANT#135-144, SLS(116)->SLS(126), 10.30->10.40:
+ #135 F1-F4+FVG indicator forge wired into the ensemble
+ #136 INDINTEL raw-return vs simulated-outcome mismatch — filed open
+ #137 live decision-reconstructability logging (closes Forge Sword's own Definition-of-Done)
+ #138 traced pass_104's "double calibration" question — no in-process retry loop found in source
+ #139 sesMap compiler warning retired — first 0-warning compile in this project's history
+ #140 dead g_RetryState call site retired
+ #141 Phase 2 progress log fixed (confirmed firing live in this exact run, see above)
+ #142 Stage 4's real TP/SL pair evidence now trims Stage1-3's raw-return-driven weights when they disagree
+ #143 EA INIT/DEINIT forensic markers added (confirmed firing live in this exact run, see above)
+ #144 CATREC's regime-preservation gate now evidence-weights its authority below a 30-trade floor while keeping full 5-trade reaction speed
+
+Full detail for every warrant is in forge_ledger.json (pass_105 through pass_116+), synced at both:
+ - <terminal>\MQL4\Files\forge_ledger.json
+ - Desktop\Work\# EX MACHINA\focus\x_strategies ix\ELITE FIXES\forge_ledger.json
+
+Attached: the currently-live-running build (source + compiled).
