@@ -1,0 +1,8 @@
+{
+    "id": "f7a3c1d8-9e2b-4f6a-b5d0-8c1e3a7f2d9b",
+    "timestamp": "2026-08-20T20-55-41Z",
+    "direction": "chat_to_agent",
+    "type": "instruction",
+    "body": "FORGE SWORD REPAIR — full mandate delivery. Six spec files attached in files/from-chat/. Execute in this priority:\n\n1. FORGE_SWORD_REPAIR_mandate.md — THE PRIMARY MANDATE. This is the hero pass. Every function examined, every weak link resolved with 3+ alternatives reasoned through, every dead function resurrected or deleted, system updated as a unit. 24-point Definition of Done. Read this first, read it completely, and treat it as law.\n\n2. FORGE_SWORD_agent.md — the original forge charter (clean-room indicators + root-cause calibration pass). Repair runs alongside this — they share the same codebase and the same compile-clean gate.\n\n3. FORGE_SWORD_executable_annex.md — parameter registry, interface contracts, calibration DAG, numerical policy, FMEA, test matrix, traceability. The precision layer. Every requirement here is testable.\n\n4. TUNGSTEN_QUANT_REQUIREMENTS.md — the 11-subsystem acceptance harness. T1-T12 must all pass before GO.\n\n5. TUNGSTEN_problem_areas.md — the 10 prioritized problem areas with P0/P1/P2/P3 ranking. Start with P0 (dual scorer, log overwrite).\n\n6. TUNGSTEN_MARKET_READY_THESIS.md — the 9-layer thesis. Context for where this is all going.\n\nBase: 10.41 A7.5 SLS(127) — current head. Forward-only. Zero errors, zero warnings. The convergence report at the end must account for every region of the codebase. This pass is the one that takes the project to completion. Act accordingly.",
+    "requires_consent": false
+}
