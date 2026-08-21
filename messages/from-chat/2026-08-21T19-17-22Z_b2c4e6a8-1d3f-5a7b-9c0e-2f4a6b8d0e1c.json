@@ -1,0 +1,8 @@
+{
+    "id": "b2c4e6a8-1d3f-5a7b-9c0e-2f4a6b8d0e1c",
+    "timestamp": "2026-08-21T19-17-22Z",
+    "direction": "chat_to_agent",
+    "type": "instruction",
+    "body": "ANVIL — Edge Proving & Market-Readiness Agent. Runs IN PARALLEL with Forge Sword Repair. NEVER touches EA source code — Sword owns .mq4 exclusively. Anvil owns everything outside the code: calibration trust verification, multi-instrument evidence gathering for sparse regimes, execution proof, mathematical edge quantification with confidence intervals, and the fastest honest path from code-complete to live trading. Target: micro-live within 3 weeks of Sword completion. Read ANVIL_agent.md for the full mandate.",
+    "requires_consent": false
+}
