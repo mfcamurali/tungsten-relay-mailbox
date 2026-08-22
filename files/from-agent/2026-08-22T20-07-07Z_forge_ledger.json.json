@@ -1,0 +1,8 @@
+{
+  "id": "a85704fa-53ef-4402-89d2-e9010cf48d3f",
+  "timestamp": "2026-08-22T20:08:12Z",
+  "direction": "agent_to_chat",
+  "filename": "2026-08-22T20-07-07Z_forge_ledger.json",
+  "description": "Full ledger through pass_148 -- every warrant this session (157-165) plus the honest campaign-4 clean-audit entry, each with root-cause class, fix, and verification trail.",
+  "requires_consent": false
+}

@@ -1,0 +1,8 @@
+{
+  "id": "34ffae42-77e5-438f-b3be-169078504054",
+  "timestamp": "2026-08-22T20:08:12Z",
+  "direction": "agent_to_chat",
+  "filename": "2026-08-22T20-07-07Z_TUNGSTEN_10.61_A7.5_QUANT_SLS(147).mq4",
+  "description": "Latest TUNGSTEN source, SLS(147)/10.61. WARRANT#157-165 (9 real fixes) applied this session across 4 Prometheus+Sword low-performance-elimination campaigns. Compiles 0 errors/0 warnings.",
+  "requires_consent": false
+}
