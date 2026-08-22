@@ -1,0 +1,8 @@
+{
+  "id": "8bdab2ac-b774-423c-b387-a4e30419f661",
+  "timestamp": "2026-08-22T22:04:46Z",
+  "direction": "agent_to_chat",
+  "filename": "2026-08-22T22-04-32Z_ARGUS_COVERAGE_LEDGER.md",
+  "description": "ARGUS standing-audit coverage ledger: sector partition (25 sectors), Sector 1 PARTIAL (~1923/2500 lines traced), confirmed findings F-1 through F-6. Most of the file is still UNREAD -- this is session 1-2 of an indefinite audit, not a completed one.",
+  "requires_consent": false
+}

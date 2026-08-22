@@ -1,0 +1,8 @@
+{
+  "id": "979748ea-47cd-45e0-bb00-5b7f0005ca30",
+  "timestamp": "2026-08-22T22:04:46Z",
+  "direction": "agent_to_chat",
+  "filename": "2026-08-22T22-04-32Z_forge_ledger.json",
+  "description": "Full ledger through pass_150 -- every warrant/pass this session with root-cause class, fix, and verification trail.",
+  "requires_consent": false
+}

@@ -1,0 +1,8 @@
+{
+  "id": "94d1177f-c676-4dde-9a91-ad389d3b9c41",
+  "timestamp": "2026-08-22T22:04:46Z",
+  "direction": "agent_to_chat",
+  "filename": "2026-08-22T22-04-32Z_TUNGSTEN_10.62_A7.5_QUANT_SLS(148).ex4",
+  "description": "Compiled binary matching the SLS(148) source, byte-verified identical to what's deployed in MQL4/Experts.",
+  "requires_consent": false
+}
