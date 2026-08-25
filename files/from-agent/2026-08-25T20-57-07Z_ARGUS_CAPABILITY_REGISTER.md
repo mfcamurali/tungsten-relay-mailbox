@@ -1,0 +1,38 @@
+# ARGUS CAPABILITY REGISTER
+**Purpose:** every faculty TUNGSTEN possesses, each with an executable check that demonstrates
+the faculty still functions. Per charter Sec IV: "the register grows, never shrinks. Retiring an
+entry requires Manuel." Every build should run the full register; a build that loses an entry
+does not ship, regardless of what it fixed.
+
+**Status this session:** seeded with the charter's own minimum list plus this session's new
+entry (R-8). Entries R-1 through R-6 are named per the charter but their executable checks are
+NOT yet built — that is explicit, tracked work, not a claim they exist. Do not read a named entry
+as a verified-passing entry unless its row says CHECK BUILT.
+
+---
+
+| ID | Capability | Executable check | Status |
+|---|---|---|---|
+| R-1 | Each of the four entry gates fires and is capable of refusing | Not yet built — needs a harness that feeds a known-bad synthetic signal through each gate and asserts it refuses, plus a known-good one and asserts it passes | NAMED, CHECK NOT BUILT |
+| R-2 | The overfitting check rejects an overfit candidate | Not yet built — needs a synthetic overfit candidate (e.g. in-sample-only edge, fails OOS) fed to the CSCV/PBO machinery with an assert on rejection | NAMED, CHECK NOT BUILT |
+| R-3 | The reversal trim's evidence floor holds | Not yet built — needs an assert that the n>=500 (or current documented floor) sample-size gate on the inversion-trim mechanism actually blocks below-floor activation | NAMED, CHECK NOT BUILT |
+| R-4 | The ratchet refuses a worse challenger | Not yet built — needs a synthetic worse-scorecard fed to `ForgeRatchetPromote()` with an assert on `false` return AND no champion mutation | NAMED, CHECK NOT BUILT |
+| R-5 | Compounding permission granted on a clean first-attempt calibration | Reference: WARRANT#153 (this session's prior work, pre-ARGUS) fixed `g_PRI[6].armed` semantics for exactly this case. Executable check not yet built — needs a synthetic clean-first-attempt calibration run with an assert that `g_Compounding.isActive`/`_preCalibOk` end up true | NAMED, CHECK NOT BUILT |
+| R-6 | Every persistence path survives a save/load round trip | Reference: WARRANT#116 (memory-corruption fix, prior session). Executable check not yet built — needs a scripted save-then-load with a full struct-field diff asserting zero drift | NAMED, CHECK NOT BUILT |
+| R-7 | The sentinel's detected loss-cluster actually cuts the stake | **CHECK BUILT AND PASSING as of this session.** Prior to today: `g_SentinelMult` was set by `SentinelRecordOutcome()` (line ~10552, live-called line ~10645) but its only consumer lived inside the then-dead `CalculateKellyCeiling()` — the print (`"stake x%.2f"`) was true, the cut was not (log-truth violation, charter §V-3). Fixed this session by wiring `CalculateKellyCeiling()` into `OptimizePrecisionLotSize` as a terminal minimum (line ~56209) — the sentinel's multiply (line ~45406) is now on a live path. Check: confirm via grep that `CalculateKellyCeiling` has a real call site (currently exactly one, at `OptimizePrecisionLotSize`) and that the call is unconditional on that path. Re-run this grep-check on every future build — if the call site count ever returns to zero, this entry regresses and the build does not ship. | **CHECK BUILT — PASSING** |
+| R-8 | The preservation ceiling (Kelly ruin-prevention) executes and can only ever reduce a trade's risk percent, never raise it | **CHECK BUILT AND PASSING, updated pass_154 (2026-08-25).** Verified by construction: the wiring is `baseRiskPercent = MathMin(baseRiskPercent, CalculateKellyCeiling())` — `MathMin` cannot increase a value, so this cannot regress sizing upward under any input. Verified `CalculateKellyCeiling()`'s own output is bounded `[0.0, KellyMaxFraction]` (final clamp, line ~45409), so no pathological (negative/NaN/unbounded) value can reach the terminal minimum. **Pass_154 closed a real gap this row had missed**: the original check verified the clamp *direction* but not the *value* feeding `g_Risk.minRisk` — that value was silently 0.0 all along (WARRANT#167, see ARGUS_COVERAGE_LEDGER.md H-2/D3), degenerating the "no edge" floor to zero instead of the intended conservative minimum. Fixed at the root (seeded `g_Risk.minRisk`/`maxRisk` at init). Re-check on every future build: grep for the exact wiring line AND confirm `g_Risk.minRisk`/`maxRisk` still have a live, non-dead assignment site. | **CHECK BUILT — PASSING** |
+| R-9 | V-4/V-5 (total call graph + global reachability): every function is either reachable from OnInit/OnTick/OnDeinit or its non-reachability is a DISCLOSED, ledger-recorded finding, never a silent surprise | **DOWNGRADED pass_155 (2026-08-25): CHECK BUILT — KNOWN BUG, DO NOT TRUST "UNREACHABLE" OUTPUT UNVERIFIED.** The tool's function-boundary parser only recognises primitive return types and silently misses any function returning a custom struct (e.g. `MarketStateFeatures CalculateMarketFeatures()`), corrupting brace-matching for everything after it in the file. Confirmed to have produced at least one real false positive that shipped: `AnalyzeMarketStructure()` was disclosed in-source as dead/superseded (pass_151) when it is in fact live, called from `CalculateMarketFeatures()` (~120 call sites file-wide) — retracted and corrected pass_155. Also nearly produced a second false lead (`ForgeRatchetPromote`/`Keys3_*`/`Forge_ReportGhostValidation`, caught mid-investigation before any fix shipped — genuinely live via `OnTick->RunMarketCalibration->RunCalibrationMode->RunE8_CompleteCalibration->RunComprehensiveGhostValidation`). Every OTHER finding this tool contributed to (A, C, D1-D4) was individually re-verified pass_155 via direct flat-text grep — an independent method not affected by this bug — and confirmed correct. Until the parser is rewritten to recognise custom-type return signatures, its "unreachable" output is a LEAD to hand-verify via flat-text grep of the exact function name, never a fact to disclose or act on directly. | **CHECK BUILT — KNOWN BUG (hand-verify every lead)** |
+| R-10 | Every hour-of-day bucketing site in the file uses the same GMT-corrected convention — no site silently indexes a different "hour" than the rest of the system means | **CHECK BUILT AND PASSING as of pass_152/WARRANT#166 (2026-08-25).** WARRANT#163-165 (2026-08-22) fixed 3 sites; this session's V-4/V-5-driven audit found and fixed a 4th (`RecordComprehensiveSignal`'s `sig.hourOfDay`, plus the two dead readers `IsCurrentHourDisabled`/`GetSmartThresholdForCurrentHour`). Check: `grep -c "TimeHour(TimeCurrent())" ` sites not immediately followed by `- g_ServerTimeOffsetHours` should be zero outside of the offset-computation site itself (line ~17534, which legitimately reads the raw broker hour to *derive* the offset). Re-run this grep on every future build that adds a new hour-of-day read. | **CHECK BUILT — PASSING** |
+
+---
+
+## How to re-run this register
+Until a proper automated harness exists (R-1 through R-6), the checks marked CHECK BUILT are
+static/grep-verifiable by construction — re-run the specific grep/read described in each row
+against the current build before shipping any further change that touches the same functions.
+The NAMED-but-not-built rows are open work: each needs a real synthetic-input test, not a
+read-through, before it can be marked CHECK BUILT.
+
+**Never remove a row from this table.** Downgrading a row's status (e.g. CHECK BUILT →
+regressed) is expected and required if a future change breaks it — that downgrade IS the
+register doing its job. Removing the row entirely is not permitted without Manuel.
