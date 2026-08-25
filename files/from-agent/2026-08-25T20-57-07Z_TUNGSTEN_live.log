@@ -1,0 +1,125 @@
+2026.08.21 00:42:10 |   P3B  ·  r8/9  Building Momentum     ·  start  ·  budget [###.......] 39%
+2026.08.21 22:41:33 |   EA INIT   |   first instance this terminal session   |   no prior deinit record
+2026.08.21 22:43:29 |   EA DEINIT   |   reason 9   |   Terminal closing
+2026.08.24 18:28:00 |   EA INIT   |   prior instance deinit 243871 sec ago   |   reason code 9   |   stale, likely a genuinely fresh terminal session
+2026.08.24 18:28:21 |   ----------------------------------------------------------------------
+2026.08.24 18:28:21 |   TUNGSTEN  ·  USDJPY M5  ·  calibrating
+2026.08.24 18:28:21 |   65237 bars total  ·  58969 training (90%)  ·  6048 OOS reserved  ·  90 min budget
+2026.08.24 18:28:21 |   ----------------------------------------------------------------------
+2026.08.24 18:28:27 |   PRE-FLIGHT   |   ten gates   |   before I trust a single number
+2026.08.24 18:28:27 |   stationarity |   Wed   +0.72 · +0.15 · +1.29 · -0.20 · +0.09
+2026.08.24 18:28:27 |                |   -> phase TRANSITIONING, 2 sign flip(s) across 5 sequential windows   |   de-meaned +0.182 ATR
+2026.08.24 18:28:27 |   nuisance     |   de-meaned against this window's own drift (+0.231 ATR over 58969 bars)
+2026.08.24 18:28:27 |                |   momentum-matched control NOT COMPUTED yet -- treat de-meaned numbers
+2026.08.24 18:28:27 |                |   as drift-adjusted, not fully nuisance-controlled.
+2026.08.24 18:28:27 |   substrate    |   regime partition   |   Bullish Reversal +0.575 ATR  vs  Controlled Pullback -0.055 ATR   |   spread 0.630
+2026.08.24 18:28:27 |   label        |   orthogonal -- day-of-week, session, displacement and volatility are
+2026.08.24 18:28:27 |                |   all raw-price/indicator derived, none built from the forward move itself
+2026.08.24 18:28:27 |   reachability |   day-of-week 5/5 cells powered   |   triple-cell 36/36 cells powered
+2026.08.24 18:28:27 |   power        |   smallest day-of-week cell n=11517   |   MDE ~0.031 ATR   |   below this, holding prior
+2026.08.24 18:28:27 |   unasked      |   NOT TESTED: order-flow, news windows, month-of-year, cross-pair
+2026.08.24 18:28:27 |                |   correlation, intraday micro-session splits finer than 4-way
+2026.08.24 18:28:27 |   objective    |   measuring day-of-week / triple-cell / regime-substrate conditioning
+2026.08.24 18:28:27 |                |   only -- nothing here updates a live weight or trading decision this pass
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (pos)   |   Wed   t=3.29 (de-meaned)   |   reliably above drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (neg)   |   Thu   t=-4.43 (de-meaned)   |   reliably below drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (neg)   |   Strong Bull   t=-3.14 (de-meaned)   |   reliably below drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (pos)   |   Strong Bear   t=3.54 (de-meaned)   |   reliably above drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (pos)   |   Bullish Reversal   t=3.92 (de-meaned)   |   reliably above drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (neg)   |   Asian x near x normal   t=-3.09 (de-meaned)   |   reliably below drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (pos)   |   Asian x near x hot   t=6.82 (de-meaned)   |   reliably above drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (pos)   |   Asian x far-above x hot   t=3.69 (de-meaned)   |   reliably above drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (neg)   |   Asian x far-below x cold   t=-4.63 (de-meaned)   |   reliably below drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (pos)   |   London x near x hot   t=3.88 (de-meaned)   |   reliably above drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (pos)   |   London x far-above x cold   t=6.23 (de-meaned)   |   reliably above drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (neg)   |   London x far-above x normal   t=-3.35 (de-meaned)   |   reliably below drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (neg)   |   London x far-below x normal   t=-5.01 (de-meaned)   |   reliably below drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (neg)   |   London x far-below x hot   t=-5.75 (de-meaned)   |   reliably below drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (pos)   |   NY x near x hot   t=4.19 (de-meaned)   |   reliably above drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (pos)   |   NY x far-above x cold   t=10.81 (de-meaned)   |   reliably above drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (pos)   |   NY x far-above x normal   t=4.54 (de-meaned)   |   reliably above drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (neg)   |   NY x far-below x normal   t=-3.72 (de-meaned)   |   reliably below drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (pos)   |   Overlap x near x normal   t=4.21 (de-meaned)   |   reliably above drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (neg)   |   Overlap x far-above x cold   t=-6.52 (de-meaned)   |   reliably below drift
+2026.08.24 18:28:27 |   inversion    |   SIGN-INVERSION (neg)   |   Overlap x far-above x normal   t=-4.91 (de-meaned)   |   reliably below drift
+2026.08.24 18:28:27 |   inversion    |   10 below-drift, 11 above-drift cell(s) flagged this pass
+2026.08.24 18:28:27 |   cost         |   spread/ATR 60.5%  (live snapshot, Phase 1 not reached yet)   |   COST-UNVALIDATED -- exceeds the 0.5 ATR no-geometry-survives bar
+2026.08.24 18:28:27 |   PRE-FLIGHT   |   10/10 asked   |   2 gate(s) incomplete/failed   |   PROCEEDING
+2026.08.24 18:28:27 |   PHASE TABLE  |   cell x 5 sequential windows x sign   |   day-of-week
+2026.08.24 18:28:27 |                |   Mon                        n=11806    +0.53 · -0.35 · -0.39 · -0.09 · +1.65   ->   TRANSITIONING (2 flips)
+2026.08.24 18:28:27 |                |   Tue                        n=11931    -0.39 · +0.18 · -0.40 · +0.95 · +1.60   ->   POSITIVE (3 flips)
+2026.08.24 18:28:27 |                |   Wed                        n=11998    +0.72 · +0.15 · +1.29 · -0.20 · +0.09   ->   TRANSITIONING (2 flips)
+2026.08.24 18:28:27 |                |   Thu                        n=11517    -0.03 · +0.23 · -0.47 · +0.48 · -0.50   ->   TRANSITIONING (4 flips)
+2026.08.24 18:28:27 |                |   Fri                        n=11669    -0.17 · +0.05 · +1.36 · +0.24 · -0.61   ->   TRANSITIONING (2 flips)
+2026.08.24 18:28:27 |   PHASE TABLE  |   session x displacement x volatility (powered cells only)
+2026.08.24 18:28:27 |                |   Asian x near x cold        n=1869     +0.30 · +1.96 · +4.33 · +2.61 · -1.07   ->   TRANSITIONING (1 flips)
+2026.08.24 18:28:27 |                |   Asian x near x normal      n=2177     +1.05 · -0.93 · +0.49 · -2.52 · +0.10   ->   TRANSITIONING (4 flips)
+2026.08.24 18:28:27 |                |   Asian x near x hot         n=1887     +0.95 · +0.77 · +0.92 · +0.18 · +0.59   ->   POSITIVE (0 flips)
+2026.08.24 18:28:27 |                |   Asian x far-above x cold        n=3059     +2.45 · +1.41 · -0.47 · +0.36 · -0.11   ->   TRANSITIONING (3 flips)
+2026.08.24 18:28:27 |                |   Asian x far-above x normal      n=2994     +0.16 · -0.27 · +1.40 · -1.91 · +0.95   ->   TRANSITIONING (4 flips)
+2026.08.24 18:28:27 |                |   Asian x far-above x hot         n=1251     +0.24 · +1.25 · +0.60 · +0.00 · +0.28   ->   POSITIVE (0 flips)
+2026.08.24 18:28:27 |                |   Asian x far-below x cold        n=666      +1.24 · +0.00 · -0.09 · +0.47 · -4.66   ->   TRANSITIONING (1 flips)
+2026.08.24 18:28:27 |                |   Asian x far-below x normal      n=1541     +0.62 · -0.43 · +1.25 · +1.35 · -0.48   ->   TRANSITIONING (3 flips)
+2026.08.24 18:28:27 |                |   Asian x far-below x hot         n=1710     -0.18 · +0.49 · +0.68 · +0.30 · +0.47   ->   POSITIVE (1 flips)
+2026.08.24 18:28:27 |                |   London x near x cold        n=975      -3.04 · -1.13 · +0.00 · -0.72 · +1.16   ->   TRANSITIONING (1 flips)
+2026.08.24 18:28:27 |                |   London x near x normal      n=1869     +0.58 · -0.86 · +1.79 · +0.73 · +0.23   ->   POSITIVE (2 flips)
+2026.08.24 18:28:27 |                |   London x near x hot         n=1506     +0.42 · +0.85 · +0.58 · +0.86 · +0.76   ->   POSITIVE (0 flips)
+2026.08.24 18:28:27 |                |   London x far-above x cold        n=1417     -1.73 · +2.15 · +3.92 · +0.62 · +1.68   ->   POSITIVE (0 flips)
+2026.08.24 18:28:27 |                |   London x far-above x normal      n=2263     -0.03 · +0.22 · +0.15 · -2.71 · +2.12   ->   TRANSITIONING (3 flips)
+2026.08.24 18:28:27 |                |   London x far-above x hot         n=1416     +0.85 · -1.09 · -0.45 · +1.05 · +0.77   ->   POSITIVE (2 flips)
+2026.08.24 18:28:27 |                |   London x far-below x cold        n=242      -15.05 · +0.00 · +0.00 · -0.70 · +0.98   ->   TRANSITIONING (1 flips)
+2026.08.24 18:28:27 |                |   London x far-below x normal      n=1003     -1.13 · +0.34 · -0.77 · -4.41 · +0.87   ->   TRANSITIONING (3 flips)
+2026.08.24 18:28:27 |                |   London x far-below x hot         n=1613     +0.53 · -0.03 · -0.95 · -2.89 · +0.75   ->   TRANSITIONING (2 flips)
+2026.08.24 18:28:27 |                |   NY x near x cold        n=951      -1.31 · -0.51 · +0.00 · -0.74 · +0.99   ->   TRANSITIONING (1 flips)
+2026.08.24 18:28:27 |                |   NY x near x normal      n=1521     -0.56 · -1.73 · +3.23 · +1.94 · +0.08   ->   POSITIVE (1 flips)
+2026.08.24 18:28:27 |                |   NY x near x hot         n=2022     +0.55 · +1.04 · -0.03 · +1.16 · +0.97   ->   POSITIVE (2 flips)
+2026.08.24 18:28:27 |                |   NY x far-above x cold        n=1188     +1.12 · +3.38 · +0.00 · +3.05 · +2.34   ->   POSITIVE (0 flips)
+2026.08.24 18:28:27 |                |   NY x far-above x normal      n=1930     -0.31 · +1.84 · +1.32 · -0.16 · +1.74   ->   TRANSITIONING (3 flips)
+2026.08.24 18:28:27 |                |   NY x far-above x hot         n=1844     +0.33 · +1.02 · +0.08 · -0.69 · +1.52   ->   TRANSITIONING (2 flips)
+2026.08.24 18:28:27 |                |   NY x far-below x cold        n=180      +0.00 · +0.46 · +0.00 · -8.19 · +5.17   ->   POSITIVE (0 flips)
+2026.08.24 18:28:27 |                |   NY x far-below x normal      n=769      -1.83 · -2.31 · -1.34 · +1.61 · -0.51   ->   TRANSITIONING (2 flips)
+2026.08.24 18:28:27 |                |   NY x far-below x hot         n=1955     -0.10 · +0.42 · -1.28 · +1.76 · +2.08   ->   POSITIVE (3 flips)
+2026.08.24 18:28:27 |                |   Overlap x near x cold        n=2238     +0.44 · -0.68 · +2.81 · +1.68 · -0.82   ->   TRANSITIONING (3 flips)
+2026.08.24 18:28:27 |                |   Overlap x near x normal      n=2256     +0.51 · +1.00 · +0.23 · +1.03 · +1.10   ->   POSITIVE (0 flips)
+2026.08.24 18:28:27 |                |   Overlap x near x hot         n=677      +0.54 · +0.90 · -0.39 · +1.37 · +0.73   ->   UNKNOWN (2 flips)
+2026.08.24 18:28:27 |                |   Overlap x far-above x cold        n=4555     -0.39 · -1.23 · -0.69 · +0.29 · -0.32   ->   TRANSITIONING (2 flips)
+2026.08.24 18:28:27 |                |   Overlap x far-above x normal      n=2622     +0.70 · -0.43 · -0.34 · -0.65 · -0.09   ->   NEGATIVE (1 flips)
+2026.08.24 18:28:27 |                |   Overlap x far-above x hot         n=893      +1.34 · +0.46 · -0.56 · +0.03 · -1.00   ->   TRANSITIONING (3 flips)
+2026.08.24 18:28:27 |                |   Overlap x far-below x cold        n=994      -9.14 · -0.88 · -3.11 · +1.34 · +5.48   ->   POSITIVE (1 flips)
+2026.08.24 18:28:27 |                |   Overlap x far-below x normal      n=1818     -1.22 · +0.57 · +0.65 · +1.59 · +2.79   ->   POSITIVE (1 flips)
+2026.08.24 18:28:27 |                |   Overlap x far-below x hot         n=1098     +0.82 · -1.06 · +0.18 · +2.66 · +2.53   ->   POSITIVE (2 flips)
+2026.08.24 18:28:27 |                |   36 cell(s) shown, 0 below diagnostic power (n<30)
+2026.08.24 18:28:29 |   INDINTEL |   mining pass starting   |   59009 bars   |   local budget 90s
+2026.08.24 18:28:29 |   INDINTEL |   mining pass done   |   19670 resolved   |   0.7s elapsed
+2026.08.24 18:28:30 |   WARRANT145 |   17/23 indicators used real TP/SL-simulated IC this run   |   ART ETF KTF PRL ATM SQE VRC SPG MACD RSI Stoch CCI AO AC SAR Alligator Ichimoku 
+2026.08.24 18:28:35 |   PASS13   |   feature diagnostic starting   |   59009 bars   |   local budget 90s
+2026.08.24 18:28:37 |   PASS13   |   feature diagnostic done   |   25184 resolved   |   2.3s elapsed
+2026.08.24 18:28:37 | 
+2026.08.24 18:28:37 |   ----------------------------------------------------------------------
+2026.08.24 18:28:37 |   PHASE 1   ·  Baseline Signal Quality
+2026.08.24 18:28:37 |   ----------------------------------------------------------------------
+2026.08.24 18:28:37 |   P1  ·  threshold grid [28..70]  ·  30000 bars  ·  step 1
+2026.08.24 18:28:38 |   P1  ·  grid  ->  thr 28  ·  20.3% WR  ·  182 trades
+2026.08.24 18:28:47 |   P1    |   baseline WR 28.6%   |   PF 0.40   |   13083 trades   |   threshold 28   |   30000 bars scanned
+2026.08.24 18:28:47 |   P1 keys3-edge-by-R   |   R<0.25 (noisy)       |   23.3% WR   |   219 trades
+2026.08.24 18:28:47 |   P1 keys3-edge-by-R   |   R 0.25-0.50          |   33.8% WR   |   275 trades
+2026.08.24 18:28:47 |   calibration diagnosis   |   attempt 1/3   |   active
+2026.08.24 18:28:47 |   phase 1   |   FAIL   |   observed 0.3   |   required 0.4   |   baseline WR 28.6% barely above random (29%) -- components not discriminative
+2026.08.24 18:28:47 |     correction   |   pending   |   signal components produce near-random outcomes on this instrument -- try different TF
+2026.08.24 18:28:47 |   root cause   |   signal sparsity -- threshold too tight or instrument has low volatility
+2026.08.24 18:28:47 |   CAL   |   action   lower baseline threshold; verify 5000+ bars loaded
+2026.08.24 18:28:47 |   phase 1 retry 1   |   widening score floor 28?28 (7.4pp shortfall)
+2026.08.24 18:28:56 | 
+2026.08.24 18:28:56 |   ----------------------------------------------------------------------
+2026.08.24 18:28:56 |   PHASE 2   ·  Regime Pattern Learning
+2026.08.24 18:28:56 |   ----------------------------------------------------------------------
+2026.08.24 18:29:06 |   P2    |   scan 20%   |   regime signature building in progress...
+2026.08.24 18:29:07 |   P2    |   scan 40%   |   regime signature building in progress...
+2026.08.24 18:29:08 |   P2    |   scan 60%   |   regime signature building in progress...
+2026.08.24 18:29:09 |   P2    |   scan 80%   |   regime signature building in progress...
+2026.08.24 18:30:14 |   P2  ·  8 viable  1 sparse  0 empty  ·  correlations learned  ·  78.0s
+2026.08.24 18:30:15 | 
+2026.08.24 18:30:15 |   ----------------------------------------------------------------------
+2026.08.24 18:30:15 |   PHASE 3   ·  Exit Horizon + Weight Optimization  ·  8 regimes  ·  budget [..........] 2%
+2026.08.24 18:30:15 |   ----------------------------------------------------------------------
+2026.08.24 18:32:26 |   P3B  ·  r1/9  Strong Bull           ·  start  ·  budget [..........] 5%
