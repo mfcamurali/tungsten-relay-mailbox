@@ -1,15 +1,15 @@
 {
- "ts": "2026-08-30T12:20:00+02:00",
+ "ts": "2026-08-30T17:05:00+02:00",
  "task": "FORGE FINALE campaign (45-criterion TUNGSTEN completion definition). Trigger phrase to resume: read '# ETERNIUS GROUP\\tungsten\\FORGE_FINALE_LEDGER.json', last entry in the `sessions` array, and continue from its CRITICAL_PATH_next. Do not re-derive state.",
- "paused_reason": "Manuel reframed the problem mid-session (edge is local, signs flip) and directed the work there. Sessions 50 tested that frame. No loop armed; no EA source touched since SLS(179).",
- "score": "30 / 45 met . 0 unknown . 15 not met . session 50 of a 60-session budget",
+ "paused_reason": "End of a seventeen-session day. Everything reachable without a terminal is reached; all 12 remaining criteria are gated on a run or on a calendar-bound forward period.",
+ "score": "33 / 45 met . 0 unknown . 12 not met . session 54 of a 60-session budget",
  "day_summary": "2026-08-30 (Sunday, market closed all day): twelve sessions run back to back, 38 through 49, taking the campaign from 24/45 to 30/45. Criteria earned: C2.3, C2.4, C3.3, C3.4, C3.5, C3.6. C2.5 was re-earned on a materially stronger basis after its original MET was found to rest on an under-checking linter aimed at an eleven-build-stale file.",
  "current_build": {
-  "name": "TUNGSTEN_10.66_APEX_QUANT_SLS(179)",
-  "mq4_md5": "1f27ba5848464df8c7c6e95302af7b0b",
-  "ex4_md5": "5f1fea298d080a7d7ffa10c494852d37 (see ledger session 47 for the authoritative value: 5F1FEA298D080A7D7FAA10C494852D37)",
+  "name": "TUNGSTEN_10.66_APEX_QUANT_SLS(180)",
+  "mq4_md5": "16F080C115014510F6D8D1E01C4034A3",
+  "ex4_md5": "2AF2C9D6507A064D0CD98722DA4C2464",
   "compile": "0 errors, 0 warnings",
-  "deployed": "byte-identical across all 3 locations (x_strategies ix root, ELITE FIXES, terminal MQL4/Experts), verified by md5 at pause time",
+  "deployed": "byte-identical across all 3 locations",
   "terminal_running": false,
   "chart02_chr_still_points_at": "SLS(153) -- nothing since has ever been live-run"
  },
@@ -43,5 +43,11 @@
   "the_untested_place_WARRANT_259": "The test measured the BLEND. Component cancellation happens before the score exists, so it is invisible there. component_edge_test.py now exists to test it, with a planted-structure known-answer test that recovers a hidden component edge (blend 0.75 invisible, planted component 70.4 visible, control 0.95, cancellation index 28.8).",
   "what_it_needs": "ONE calibration run. The 21-column export including comp_mtf/momentum/volatility/volume/session/pattern is ALREADY WRITTEN in the EA (WARRANT#213/217) and ExportHistoricalScoreOutcomes is already true. The CSV on disk has 13 columns because it predates those warrants.",
   "arm_gate_consequence": "P6 arms on a POOLED ghost win rate (0.58/0.62). If edge is selective, that averages the tradeable subset with everything else -- the operation that destroys it. A system required to clear a global win rate cannot express 'I trade 2% of bars and I am right on those'. Not covered by any criterion; deserves its own warrant."
- }
+ },
+ "MONDAY_FIRST_THREE_THINGS": [
+  "1. Let the calibration run. It regenerates the 21-column export automatically (ExportHistoricalScoreOutcomes is already true). Then `python component_edge_test.py` -- the decisive test of whether the blend has been destroying component-level local edge. Its planted-structure self-test already proves it can find that if present.",
+  "2. That same run also unblocks C1.3 (parity test passing), C2.2 (block-sequence audit), C6.1 (real label counts) and C8.4 (induced fault). Four criteria from one run.",
+  "3. Start the C7 forward clock as early as C4/C5/C6 honestly allow. It is five criteria and it is the ONLY thing no amount of throughput compresses."
+ ],
+ "C5_3_READY_TO_SHIP": "g_Risk.peakEquity is in neither SaveSystemState nor LoadSystemState, so the drawdown-fade floor resets on every restart -- a ratchet that resets is not a ratchet. Fix is scoped: append a marked optional section (the file already uses that convention -- 0xA1F0, 0xD520, 0xE210, plus LE_/PDB_ tail helpers), so NO version bump and NO existing state discarded; the only state files on disk are EURUSD from January/February and the live symbol is USDJPY. Deliberately not shipped at hour fifteen: untyped positional binary, silent-failure class. Round-trip a save/load and assert peakEquity survives."
 }
