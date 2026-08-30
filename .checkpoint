@@ -1,11 +1,9 @@
 {
- "ts": "2026-08-30T10:45:00+02:00",
+ "ts": "2026-08-30T12:20:00+02:00",
  "task": "FORGE FINALE campaign (45-criterion TUNGSTEN completion definition). Trigger phrase to resume: read '# ETERNIUS GROUP\\tungsten\\FORGE_FINALE_LEDGER.json', last entry in the `sessions` array, and continue from its CRITICAL_PATH_next. Do not re-derive state.",
- "paused_reason": "Manuel asked to save state and stop ('save state everything' / 'and stop for now'). Deliberate clean pause mid-C1.4, not a hang, block, or failure. No autonomous loop is armed; ScheduleWakeup was stopped and not re-armed.",
-
- "score": "30 / 45 met . 0 unknown . 15 not met . session 49 of a 60-session budget",
+ "paused_reason": "Manuel reframed the problem mid-session (edge is local, signs flip) and directed the work there. Sessions 50 tested that frame. No loop armed; no EA source touched since SLS(179).",
+ "score": "30 / 45 met . 0 unknown . 15 not met . session 50 of a 60-session budget",
  "day_summary": "2026-08-30 (Sunday, market closed all day): twelve sessions run back to back, 38 through 49, taking the campaign from 24/45 to 30/45. Criteria earned: C2.3, C2.4, C3.3, C3.4, C3.5, C3.6. C2.5 was re-earned on a materially stronger basis after its original MET was found to rest on an under-checking linter aimed at an eleven-build-stale file.",
-
  "current_build": {
   "name": "TUNGSTEN_10.66_APEX_QUANT_SLS(179)",
   "mq4_md5": "1f27ba5848464df8c7c6e95302af7b0b",
@@ -15,35 +13,35 @@
   "terminal_running": false,
   "chart02_chr_still_points_at": "SLS(153) -- nothing since has ever been live-run"
  },
-
  "builds_shipped_today": "SLS(173) through SLS(179), seven builds, each 0 errors / 0 warnings and deployed byte-identical. terminal.exe was never running at any point today.",
-
  "nothing_is_half_done": "No EA source was modified in sessions 48 or 49 -- both were research-layer only. There is no partial edit, no uncompiled change, and no deploy in flight. The last EA change was session 47's SLS(179), fully compiled, deployed and verified.",
-
  "three_open_decisions_for_manuel": {
   "C3.2_enforcement": "The sample floor a reported win rate must clear is now DERIVED at 1,309 trades (research_layer/rate_floor.py, 5 self-tests, every input traced to an EA constant: break-even from SpecBreakevenWR, the detectable edge from P6's 0.10R quarantine floor, the 95/80 standard from the existing IC success bar). Every floor in the source is below it -- largest is 500. Options put to Manuel: (a) enforce and accept that essentially every win rate stops printing, (b) do what the Python layer already does -- print the count, withhold the rate, so the line survives and says why, (c) rule that the criterion governs rates used as evidence rather than every log line and amend under FF-45. Recommendation given: (b). Manuel then said to stop waiting and keep working, which was taken as authority to proceed with (b) -- see the technical blocker below before implementing it.",
   "C3.1_net_b": "The n half is complete (118 of 118 rate sites carry their sample count, from 34 at the start of the day). The net-b half is 24 of 118, a number only visible after the check for it was rewritten to be capable of failing. The 94 remaining need triage into 'a payoff figure exists and is not printed' versus 'none exists in scope', the latter being an FF-45 amendment case rather than a build.",
   "C3.7_holdout": "Needs a ruling on which period is reserved as the untouched holdout, and on 'used once' -- the ghost validation currently re-runs on every retry, so the holdout is used many times per calibration. That re-use is itself a real finding and has not been acted on."
  },
-
  "technical_blocker_on_C3_2": "PrintFormat is variadic. Converting a rate specifier from %f to %s and passing a string instead of a double is NOT a compile error -- it prints garbage at runtime. A 118-site automated rewrite with a silent-failure mode must not ship without a verifier that checks every conversion specifier against its argument's inferred type. That verifier is the prerequisite and does not exist yet. The site inventory it needs is built: 72 sites carry an explicitly declared trailing count from WARRANT#254, 33 carry a native one, 13 need their count located.",
-
  "next_when_resumed": [
-  "1. C1.4's twelve undocumented unreachable functions: DiagnosePhaseFailure, FindLastSwingHigh, FindLastSwingLow, ForgeExpectedTimeInRegime, IdentifyCandlePattern, LE_AvgDwell, LE_ComputeBracketTP, LE_DriverFingerprint, LE_IsTradeable, PrintEmpathetic, RI_AcceptTunedParameter, TestConfigOnHistoricalBars. Read the five LE_ ones TOGETHER -- five Living Edge helpers unreachable at once suggests a subsystem built and never connected, not five independent oversights. Terminal-free, and C1.4's own escape clause means documenting is a legitimate resolution where wiring is not warranted.",
-  "2. Build the specifier-vs-argument verifier, then implement C3.2 option (b).",
-  "3. C3.1's net-b triage across the 94 sites.",
-  "4. C3.7's holdout ruling.",
-  "5. When the market reopens Monday: the terminal-gated set unblocks -- C1.3 (parity test), C2.2 (block-sequence audit), C6.1 (real label counts), C6.3/C6.4 (the irreducible three-calibration trend), and all of C7. C7's forward clock is the one thing no amount of agent throughput compresses; start it as early as C4/C5/C6 honestly allow."
+  "1. MONDAY, first: the calibration run regenerates the 21-column export automatically. Then `python component_edge_test.py` -- it either finds component-level local structure the blend was hiding, or closes the question honestly.",
+  "2. Wire the dead cell-layer path: LE_IsTradeable, r3 brackets (LE_ComputeBracketTP/SL), r4 fingerprint (LE_DriverFingerprint), so the layer can be measured rather than inferred.",
+  "3. Only then consider unlocking live influence, gated by the sufficiency contract, on cells that have actually resolved.",
+  "4. The pooled-arm-gate finding deserves its own warrant.",
+  "5. Still open from before: C1.4's 12 undocumented unreachable functions (five are the LE_ cluster above -- same subsystem), C3.2 enforcement (floor derived at 1,309; needs a specifier-vs-argument verifier first because PrintFormat is variadic), C3.1's net-b triage, C3.7's holdout ruling."
  ],
-
  "two_real_defects_found_today_that_no_criterion_asked_about_directly": {
   "OOS_leak": "The global train/OOS boundary reserved a flat 120 bars and its own comment called that 'zero leakage'. Phase 3A picks each regime's exit horizon from a candidate list topping out at 150 bars, and a label resolves over that horizon -- so any regime calibrated above 120 had its TRAINING labels resolving inside the OOS window, in the one measurement the arm decision rests on. Fixed in WARRANT#251: the gap is now derived from the longest possible label plus an embargo. Purge and embargo also applied to the four splits inside the weight search, with 23 passing assertions including negative controls.",
   "dead_field_printed_as_a_win_rate": "g_Calibration.bestHistoricalWR is declared once, read once, and assigned nowhere in 63,000 lines. The CATREC threshold line has always printed its default as 'calibWR'. Fixed in WARRANT#254; the dead field is left declared with a comment so the finding stays visible rather than vanishing into a clean diff."
  },
-
  "the_joint_statistical_finding": "C3.3 (the IC curve), C3.4 (the multiplicity ledger) and C3.6 (the uniqueness-weighted effective sample) compose into one result none produces alone: NO HORIZON of the score's IC curve survives the family-wide multiplicity correction on the effective sample. l=1 and l=2 are significant undeflated and lose to the deflated bar of 3.63 at 176 registered tests. The only survivors are two contemporaneous same-bar log-return ICs, which are explicitly not forward-predictive tests. This is the strongest form of the standing null the project has ever measured. It is NOT the edge/no-edge verdict -- C4 is that criterion, and it stops and asks.",
-
  "standing_lesson_from_the_day": "Almost every criterion turned out to be blocked less by missing capability than by an instrument measuring the wrong thing. C2.5's MET rested on a hedge-linter covering half its own rule, pointed at an eleven-build-stale file. C3.2's '113 of 119 guarded' was a proximity artifact. C3.1's stored line numbers pointed at unrelated code. phase0 registered 10 tests while running 110. The C1.4 definition-matcher found 7 functions in a 63,000-line file on its first run. CHECK THE INSTRUMENT AGAINST SOURCE BEFORE TRUSTING ITS VERDICT.",
-
- "where_the_detail_lives": "'# ETERNIUS GROUP\\tungsten\\FORGE_FINALE_LEDGER.json' sessions 38-49 carry every warrant in full. The criterion instruments live in '# ETERNIUS GROUP\\tungsten\\research_layer\\', each self-tested: check_c24_derivation.py, extract_and_lint_human_lines.py + logblock_linter.py, rate_report_linter.py + c31_site_analysis.py, c32_floor_guard_audit.py + rate_floor.py, test_ledger.py + apply_deflation.py, ic_curve.py + check_c33_ic_curve.py, effective_sample.py + check_c36_effective_sample.py, check_c35_purge_embargo.py, check_c14_unreachable.py."
+ "where_the_detail_lives": "'# ETERNIUS GROUP\\tungsten\\FORGE_FINALE_LEDGER.json' sessions 38-49 carry every warrant in full. The criterion instruments live in '# ETERNIUS GROUP\\tungsten\\research_layer\\', each self-tested: check_c24_derivation.py, extract_and_lint_human_lines.py + logblock_linter.py, rate_report_linter.py + c31_site_analysis.py, c32_floor_guard_audit.py + rate_floor.py, test_ledger.py + apply_deflation.py, ic_curve.py + check_c33_ic_curve.py, effective_sample.py + check_c36_effective_sample.py, check_c35_purge_embargo.py, check_c14_unreachable.py.",
+ "THE_LOCAL_EDGE_QUESTION": {
+  "manuel_framing": "Edge is local, moment to moment; signs flip; a scalar +5/-5/0 is the wrong representation of a moment. Winning traders outlast 90% by noticing subtle patterns, not by practice alone.",
+  "already_designed": "forge-edge-2 describes exactly this -- cells that know how long their SIGN has stayed, survival/dwell, sign-resolution floor ('faster-flipping = unresolvable = untradeable'). Built in source but DISCONNECTED: LE_ComputeLiveCellDecision has one caller, Forge_ReportSystemUnity, whose own comment says 'writes nothing, mutates nothing, purely diagnostic'. Five helpers (LE_IsTradeable, LE_ComputeBracketTP/SL, LE_DriverFingerprint, LE_AvgDwell) have zero call sites.",
+  "mathematics": "Pooled IC is proportional to E[beta]; sign-flipping drives it to zero regardless of |beta|. The edge would live in Var(beta), which pooled IC cannot see.",
+  "measured_WARRANT_258": "On the BLENDED score at horizon 1 (no overlap, exact null): variance ratio 0.86 time-windows, 1.34 state-cells (p 0.058). No excess. First run showed 3.26/7.27 at h=5/h=21 -- an artefact arriving at exactly the overlap factor; corrected by standardising on the effective sample.",
+  "the_untested_place_WARRANT_259": "The test measured the BLEND. Component cancellation happens before the score exists, so it is invisible there. component_edge_test.py now exists to test it, with a planted-structure known-answer test that recovers a hidden component edge (blend 0.75 invisible, planted component 70.4 visible, control 0.95, cancellation index 28.8).",
+  "what_it_needs": "ONE calibration run. The 21-column export including comp_mtf/momentum/volatility/volume/session/pattern is ALREADY WRITTEN in the EA (WARRANT#213/217) and ExportHistoricalScoreOutcomes is already true. The CSV on disk has 13 columns because it predates those warrants.",
+  "arm_gate_consequence": "P6 arms on a POOLED ghost win rate (0.58/0.62). If edge is selective, that averages the tradeable subset with everything else -- the operation that destroys it. A system required to clear a global win rate cannot express 'I trade 2% of bars and I am right on those'. Not covered by any criterion; deserves its own warrant."
+ }
 }
