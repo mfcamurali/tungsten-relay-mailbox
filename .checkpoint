@@ -1,13 +1,13 @@
 {
- "ts": "2026-08-30T17:05:00+02:00",
+ "ts": "2026-08-30T18:40:00+02:00",
  "task": "FORGE FINALE campaign (45-criterion TUNGSTEN completion definition). Trigger phrase to resume: read '# ETERNIUS GROUP\\tungsten\\FORGE_FINALE_LEDGER.json', last entry in the `sessions` array, and continue from its CRITICAL_PATH_next. Do not re-derive state.",
- "paused_reason": "End of a seventeen-session day. Everything reachable without a terminal is reached; all 12 remaining criteria are gated on a run or on a calendar-bound forward period.",
- "score": "33 / 45 met . 0 unknown . 12 not met . session 54 of a 60-session budget",
+ "paused_reason": "Built every harness the remaining criteria need. Eleven of the twelve are now purely test-gated; the twelfth (C1.3) turned out to be build-gated, not run-gated, and is named.",
+ "score": "33 / 45 met . 0 unknown . 12 not met . session 55 of a 60-session budget",
  "day_summary": "2026-08-30 (Sunday, market closed all day): twelve sessions run back to back, 38 through 49, taking the campaign from 24/45 to 30/45. Criteria earned: C2.3, C2.4, C3.3, C3.4, C3.5, C3.6. C2.5 was re-earned on a materially stronger basis after its original MET was found to rest on an under-checking linter aimed at an eleven-build-stale file.",
  "current_build": {
-  "name": "TUNGSTEN_10.66_APEX_QUANT_SLS(180)",
-  "mq4_md5": "16F080C115014510F6D8D1E01C4034A3",
-  "ex4_md5": "2AF2C9D6507A064D0CD98722DA4C2464",
+  "name": "TUNGSTEN_10.66_APEX_QUANT_SLS(181)",
+  "mq4_md5": "5B19772837B90A695B24895B83B76286",
+  "ex4_md5": "026739AE6CED4F6F2390ED3D86A60A4F",
   "compile": "0 errors, 0 warnings",
   "deployed": "byte-identical across all 3 locations",
   "terminal_running": false,
@@ -45,9 +45,11 @@
   "arm_gate_consequence": "P6 arms on a POOLED ghost win rate (0.58/0.62). If edge is selective, that averages the tradeable subset with everything else -- the operation that destroys it. A system required to clear a global win rate cannot express 'I trade 2% of bars and I am right on those'. Not covered by any criterion; deserves its own warrant."
  },
  "MONDAY_FIRST_THREE_THINGS": [
-  "1. Let the calibration run. It regenerates the 21-column export automatically (ExportHistoricalScoreOutcomes is already true). Then `python component_edge_test.py` -- the decisive test of whether the blend has been destroying component-level local edge. Its planted-structure self-test already proves it can find that if present.",
-  "2. That same run also unblocks C1.3 (parity test passing), C2.2 (block-sequence audit), C6.1 (real label counts) and C8.4 (induced fault). Four criteria from one run.",
-  "3. Start the C7 forward clock as early as C4/C5/C6 honestly allow. It is five criteria and it is the ONLY thing no amount of throughput compresses."
+  "1. Arm once. That single calibration writes the first learning-trend row AND opens the forward pre-registration, and regenerates the 21-column export. Then run component_edge_test.py for the local-edge answer.",
+  "2. The same run unblocks C2.2, C6.1 and C8.4 (the last needs a fault induced deliberately).",
+  "3. Then it is waiting: three calibrations for C6.3/C6.4, and the declared forward period for C7. Neither compresses."
  ],
- "C5_3_READY_TO_SHIP": "g_Risk.peakEquity is in neither SaveSystemState nor LoadSystemState, so the drawdown-fade floor resets on every restart -- a ratchet that resets is not a ratchet. Fix is scoped: append a marked optional section (the file already uses that convention -- 0xA1F0, 0xD520, 0xE210, plus LE_/PDB_ tail helpers), so NO version bump and NO existing state discarded; the only state files on disk are EURUSD from January/February and the live symbol is USDJPY. Deliberately not shipped at hour fifteen: untyped positional binary, silent-failure class. Round-trip a save/load and assert peakEquity survives."
+ "C5_3_READY_TO_SHIP": "g_Risk.peakEquity is in neither SaveSystemState nor LoadSystemState, so the drawdown-fade floor resets on every restart -- a ratchet that resets is not a ratchet. Fix is scoped: append a marked optional section (the file already uses that convention -- 0xA1F0, 0xD520, 0xE210, plus LE_/PDB_ tail helpers), so NO version bump and NO existing state discarded; the only state files on disk are EURUSD from January/February and the live symbol is USDJPY. Deliberately not shipped at hour fifteen: untyped positional binary, silent-failure class. Round-trip a save/load and assert peakEquity survives.",
+ "WHAT_SLS_181_ADDS": "Two capture-before-the-event harnesses, both file writes at the calibration verdict. (1) TUNGSTEN_learning_trend.csv -- one row per completed calibration with both error rates and the forecast error, so C6.3/C6.4's three-calibration trend can accumulate at all (nothing wrote those numbers before, so the first two calibrations would always have been lost). (2) TUNGSTEN_forward_registration.csv -- written ONCE at arming with the declared length, the sample size fixed in advance, the predicted win rate and interval, the calibration b and the risk layer's own drawdown budget. Write-once is C7.2's teeth: the target cannot be moved once the period begins. New input ForwardPeriodDays (default 14) makes the length stated rather than implicit.",
+ "C1_3_RECLASSIFIED": "NOT run-gated. Of the six canonical shared component scorers, ZERO are called by CalculateEnhancedUnifiedScore -- the live scorer computes every shared component through its own separate code, and identity rests on a sampled runtime comparison rather than structure. Two implementations do not become one because a calibration runs. Named work: route the live scorer through MTF212_StructuralScore, MOM222_MomentumAdaptiveScore, VOL219_VolatilityScore, VOLUME223_Score, SESSION224_Score, CalculatePatternScore -- behind an identity flag defaulting OFF, using the existing parity test to prove flag-on equals flag-off before it is ever switched on. Not attempted at hour sixteen: the two implementations are not known to agree, so routing can change live scores and trades."
 }
