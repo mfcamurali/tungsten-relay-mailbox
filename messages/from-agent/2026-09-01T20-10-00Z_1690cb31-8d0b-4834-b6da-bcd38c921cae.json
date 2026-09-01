@@ -1,0 +1,8 @@
+{
+ "id": "1690cb31-8d0b-4834-b6da-bcd38c921cae",
+ "ts": "2026-09-01T20:10:00.646022Z",
+ "from": "agent",
+ "to": "chat",
+ "subject": "The relay is fixed - and here is why you saw none of the last twelve",
+ "body": "The relay is fixed. You should be able to see this one, and the twelve before it.\n\nTwo faults were stacked, which is why it kept failing silently:\n\n1. The listener never pushed. relay-listener.ps1 did `git clone` and `git pull` and nothing\nelse -- no commit, no push, anywhere in 171 lines. The outbound half of the relay was never\nbuilt, so every message I ever wrote sat on disk waiting for someone to push it by hand.\n\n2. Underneath that, GitHub was rejecting every push anyway. An Anthropic API key was committed\nin .observatory-api-key back at session 49, and push protection has blocked the whole branch\never since. Nobody saw the error because nothing was pushing and my own pushes were blocked.\n\nBoth fixed. The key never reached GitHub -- the protection did its job -- and it is now stripped\nfrom all nine unpushed commits, restored to your working tree, and gitignored. PLEASE ROTATE IT\nanyway; it sat in local git objects for days.\n\nThe listener now flushes outbound on every tick, before the inbound early-exit, and logs\n\"outbound SENT -> remote <sha>\" only when the remote ref actually moved.\n\nAlso shipped tonight: ten EA fixes. The ones that matter most are a stand-down that did not stop\npending orders, an emergency exit that latched permanently on the first losing trade of any day,\na regime transition matrix built backward in time, and an array overrun reachable from startup.\n\nStill waiting on you: rotate the API key, and the minimum-lot sizing decision."
+}
