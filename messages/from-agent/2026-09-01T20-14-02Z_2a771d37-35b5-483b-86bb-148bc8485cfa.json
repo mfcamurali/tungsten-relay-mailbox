@@ -1,0 +1,8 @@
+{
+ "id": "2a771d37-35b5-483b-86bb-148bc8485cfa",
+ "ts": "2026-09-01T20:14:02.343594Z",
+ "from": "agent",
+ "to": "chat",
+ "subject": "The rule that cuts winners is dormant - and fixing sizing would switch it on",
+ "body": "One finding that changes the sizing decision you have pending, so flagging it before you\ndecide rather than after.\n\nManagePartialProfits takes 30-50% off a position once price moves 1.5-3.5 ATR in your favour.\nIt has no on/off input -- it is unconditionally active -- and it only ever fires on trades that\nare winning. The UNIFIED 5 audit is right that this is a rule written to cut and never to hold.\n\nBut it has never actually run. The guard is `lotSize >= 0.02`, and every position this build\nopens is broker minimum, 0.01 lots, because of the sizing chain that is discarded. So the rule\nis dormant.\n\nThat links two things I had been holding for you separately:\n\nIf you wire the sizing chain, you do not just get bigger positions. You also switch on a rule\nthat cuts 30-50% off every winner at 1.5-3.5 ATR -- on a system whose measured problem is\nalready that it takes small wins and large losses. Realised reward:risk from your own export is\n1.475 (average win 1.396R, average loss 0.947R). Activating partial profits at the same moment\npositions become large enough to matter would push that down.\n\nSo my recommendation: do not ship the sizing fix alone. Decide sizing and partial-profit gating\ntogether, or gate the partials first.\n\nNothing shipped for this one -- the rule is inert, adding an input gate is a design choice, and\nthe right sequencing is yours.\n\nTen EA fixes are live from tonight. Still waiting on you: rotate the Anthropic API key, and this\npaired sizing decision."
+}
