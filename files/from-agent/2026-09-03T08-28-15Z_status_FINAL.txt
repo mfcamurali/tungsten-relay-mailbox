@@ -1,0 +1,59 @@
+==============================================================================
+FORGE FINALE -- the whole board, read from the instruments
+==============================================================================
+
+  c32_floor_guard_audit.py         C3.2         MET
+  check_authority_criteria.py      C1.1,C1.2    C1.1=NOT MET, C1.2=MET
+  check_c13_parity.py              C1.3         MET
+  check_c14_unreachable.py         C1.4         MET
+  check_c15_telemetry.py           C1.5         NOT MET
+  check_c22_block_sequence.py      C2.2         MET
+  check_c24_derivation.py          C2.4         MET
+  check_c26_fault_status.py        C2.6         NOT MET
+  check_c27_reducer_operand.py     C2.7         NOT MET
+  check_c33_ic_curve.py            C3.3         MET
+  check_c35_purge_embargo.py       C3.5         MET
+  check_c36_effective_sample.py    C3.6         MET
+  check_c37_holdout.py             C3.7         REVIEW BY HAND
+  check_c38_instrument_selftest.py C3.8         NOT MET
+  check_c4_record.py               C4           INCONCLUSIVE
+  check_c53_ratchet.py             C5.3         STRUCTURALLY SOUND, HISTORY PENDING
+  check_c55_reducer_stack.py       C5.5         NOT MET
+  check_c61_bar_labels.py          C6.1         MET
+  check_c62_type_pair.py           C6.2         MET
+  check_c65_six_cell.py            C6.5         NOT MET
+  check_c66_exit_conditions.py     C6.6         NOT MET
+  check_c6_learning_trend.py       C6.3,C6.4    C6.3=NOT MET, C6.4=MET
+  check_c7_forward.py              C7           exit 1
+  check_c81_status_line.py         C8.1         NOT MET
+  check_c82_run_summary.py         C8.2         MET
+  check_c83_derisk.py              C8.3         NOT MET
+  check_c84_fault_legibility.py    C8.4         NOT MET
+  check_c85_autonomy.py            C8.5         NOT MET
+  check_c86_weekly_five.py         C8.6         NOT MET
+  check_kelly_drawdown.py          C5.1,C5.2    C5.1=MET, C5.2=NEEDS SPEC DEFINITION OF k
+  check_lint_criteria.py           C2.3,C2.5,C3.1,C3.4 C2.3=MET, C2.5=MET, C3.1=NOT MET, C3.4=MET
+  check_sizing_criteria.py         C5.6,C5.7    C5.6=MET, C5.7=MET
+  check_source_criteria.py         C2.1,C5.4    C2.1=MET, C5.4=MET
+  threshold_scale_audit.py         C1.6         MET
+
+==============================================================================
+BOARD
+==============================================================================
+  automated MET      (22): C1.2, C1.3, C1.4, C1.6, C2.1, C2.2, C2.3, C2.4, C2.5, C3.2, C3.3, C3.4, C3.5, C3.6, C5.1, C5.4, C5.6, C5.7, C6.1, C6.2, C6.4, C8.2
+  automated NOT MET  (16): C1.1, C1.5, C2.6, C2.7, C3.1, C3.8, C4, C5.5, C6.3, C6.5, C6.6, C8.1, C8.3, C8.4, C8.5, C8.6
+  ambiguous          (4): C3.7=REVIEW BY HAND, C5.2=NEEDS SPEC DEFINITION OF k, C5.3=STRUCTURALLY SOUND, HISTORY PENDING, C7=exit 1
+
+  UNAUTOMATED -- no checker decides these, so they are neither counted as passing
+  nor as failing. An unmeasured criterion is unmeasured, and the board says so:
+     
+
+  42 of 46 criteria have an automated checker. The campaign's headline count has been
+  maintained in prose across ninety-three entries; this is the second time it has been
+  computed, and the first time the DENOMINATOR was read from the spec rather than
+  typed from memory -- the first attempt listed 40 criteria and the document defines
+  46. C1.6, C2.6, C2.7, C5.6, C5.7 and C7.5 were missing from a board built to stop
+  exactly this kind of drift, which is worth recording plainly rather than quietly
+  correcting. Any disagreement between prose and board is the prose being wrong.
+
+Written: finale_status_result.json

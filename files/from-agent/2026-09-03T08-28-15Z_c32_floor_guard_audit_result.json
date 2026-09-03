@@ -1,0 +1,1419 @@
+{
+ "source": "TUNGSTEN_10.66_APEX_QUANT_SLS(181).mq4",
+ "counts": {
+  "FLOOR_ENFORCED": 173,
+  "SPECIFICATION": 2,
+  "DERIVED_THRESHOLD": 1
+ },
+ "verdict": "MET",
+ "sites": [
+  {
+   "line": 6364,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_RegimeCorrelations[_pr2].signalTotal)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"    %s  WR %s (%dT)  PF %.2f  H %.2f  pct %.0f%%  best:%s\", GetRegimeName(_pr2), WRStr(g_RegimeCorr"
+  },
+  {
+   "line": 9335,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_iT)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B   |   isolation   r%d   |   WR %s   |   sensitive: MTF%s Mom%s Vol%s Vty%s Ses%s Pat%s   |   "
+  },
+  {
+   "line": 9430,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  scan-wide   ->  %s WR  val %.1f%%  [MTF%.1f Mo%.1f Vo%.1f Vt%.1f Se%.1f Pa%.1f"
+  },
+  {
+   "line": 9499,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  scan-mid    ->  %s WR  val %.1f%%  [MTF%.1f Mo%.1f Vo%.1f Vt%.1f Se%.1f Pa%.1f"
+  },
+  {
+   "line": 9557,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  scan-fine   ->  %s WR  val %.1f%%  [MTF%.1f Mo%.1f Vo%.1f Vt%.1f Se%.1f Pa%.1f"
+  },
+  {
+   "line": 9612,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  scan-ext    ->  %s WR  val %.1f%%  [MTF%.2f Mo%.2f Vo%.2f Vt%.2f Se%.2f Pa%.2f"
+  },
+  {
+   "line": 9683,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  scan-ext    ->  %s WR  [MTF%.2f Mo%.2f Vo%.2f Vt%.2f Se%.2f Pa%.2f]\","
+  },
+  {
+   "line": 9725,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  grids done  ->  %s WR  val %.1f%%  \u00b7  %ds\","
+  },
+  {
+   "line": 9754,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  ascent-50   seeded %s WR  \u00b7  up to 50 passes\","
+  },
+  {
+   "line": 9811,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  ascent-50   ->  %s WR  val %.1f%%\","
+  },
+  {
+   "line": 9833,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  ascent-200  seeded %s WR  \u00b7  running 200 passes\","
+  },
+  {
+   "line": 9896,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  ascent-200  ->  %s WR  val %.1f%%  [MTF%.2f Mo%.2f Vo%.2f Vt%.2f Se%.2f Pa%.2f"
+  },
+  {
+   "line": 9986,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  global-rnd  ->  %s WR  val %.1f%%  [MTF%.2f Mo%.2f Vo%.2f Vt%.2f Se%.2f Pa%.2f"
+  },
+  {
+   "line": 10174,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  focused     %s WR below 63%%  ->  narrowing search\","
+  },
+  {
+   "line": 10243,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_p3bTrainN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  focused     ->  %s WR  (%+.1f%% vs pre-focused)\","
+  },
+  {
+   "line": 10735,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "g_P3BReportTrainN[MathMin(8,MathMax(0,regime))]",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d %-20s  COMPLETE    %s WR  val %.1f%%  thr %.0f  %dt  %+.1fpp lift\","
+  },
+  {
+   "line": 12289,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  CATREC|   recalibration   %s   |   WR %s   |   alignment %.2f%s   |   consider recalibrating   | "
+  },
+  {
+   "line": 12294,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   performance   rolling WR %s   |   all-time %.1f%%   |   exceeds calibrated %.1f%%   |  "
+  },
+  {
+   "line": 12761,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_bSize",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost  batch %d  |  trades %d-%d  |  batch WR %s  |  batch P&L %+.3f%%  |  running WR %s  |  runn"
+  },
+  {
+   "line": 12850,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_bestT)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost  \u00b7  baseline-rescue best  \u00b7  thr %.0f  \u00b7  %dt  \u00b7  %s WR  \u00b7  (per-regime scan: %dt)\", _bestT"
+  },
+  {
+   "line": 12852,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_bestT)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost  \u00b7  baseline-rescue viable (%s WR, %dt, thr %.0f)  ->  resetting all thresholds to %.0f for"
+  },
+  {
+   "line": 12866,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "ghostStreamTotal",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost complete  |  %d total trades  |  %d stored for detail  |  final WR %s  |  P&L %+.3f%%\","
+  },
+  {
+   "line": 12872,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(ghostStreamRegimeObs[_gs])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"    regime %-22s  %3d trades  WR %s\", GetRegimeName(_gs), ghostStreamRegimeObs[_gs], WRStr(_rwr, (i"
+  },
+  {
+   "line": 12949,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_denseObs[_ds])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"    %-22s  %4d samples  WR %s%s\", GetRegimeName(_ds), _denseObs[_ds], WRStr(_dwr, (int)(_denseObs[_"
+  },
+  {
+   "line": 13133,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_svT)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  gate8 stress  |  vol window bars %d-%d  |  WR %s  |  %s   |   %dt\", _bestVolStart, _bestVolStart+"
+  },
+  {
+   "line": 13145,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(ghostStreamTotal)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  Ghost: FAIL  WR %s  PF %.2f  EV %.2f%%  MaxDD %d   |   %dt\", WRStr(wr*100, (int)(ghostStreamTotal"
+  },
+  {
+   "line": 13181,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_asianN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  note  |  Asian WR %s (low-volume session, non-critical)   |   %dt\", WRStr(asianWR*100, (int)(_asi"
+  },
+  {
+   "line": 13194,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_highVolN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  \u26a0 vol  |  High-vol WR %s < 45%% \u2014 edge fails in volatile conditions   |   %dt\", WRStr(highVolWR*1"
+  },
+  {
+   "line": 13199,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_normalVolN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  \u26a0 vol  |  Normal-vol WR %s < 50%% \u2014 core environment edge insufficient   |   %dt\", WRStr(normalVo"
+  },
+  {
+   "line": 19651,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   status   $%.2f   |   drawdown %.1f%%/%.0f%%   |   exposure %.1f%%   |   WR %s%s   |   %"
+  },
+  {
+   "line": 21866,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_ExitCondRN[i])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  EXIT-COND  |   %-22s   |   %d/%d   |   %s WR   |   travelled %.2fR of %.2fR planned   |   capture"
+  },
+  {
+   "line": 21986,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(totalTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"        read: %s. day %d trades, WR %s.\", _read, totalTrades, WRStr(_wr2, (int)(totalTrades), 0)"
+  },
+  {
+   "line": 23100,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  %s   |   $%.0f   |   %s   |   WR %s   |   score %.0f   |   thr %.0f   |   %dt\", Symbol(), _hbBal,"
+  },
+  {
+   "line": 23162,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(bestScenario.samplesBackingThis)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P5    |   scenario   %s   |   thr %.0f   |   WR %s   |   conf %.0f%%   |   %dt\", GetRegimeName(be"
+  },
+  {
+   "line": 23224,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_pp.observations)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  SIGNAL-KILL  |  probability gate  |  %s  |  WR %s (need 60.0%%)  |  EV %.3f (need 0.200)  |  n=%d"
+  },
+  {
+   "line": 24843,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_HourlyTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   hour   +$%.0f   |   %d trades   |   %s WR   |   %s%.0f today\", g_HourlyProfit, g_Hourly"
+  },
+  {
+   "line": 24875,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(totalTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   day   %d trades   |   %s WR (%s)   |   +$%.0f   |   +%.1f%%   |   $%s   |   %s\", totalT"
+  },
+  {
+   "line": 24883,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(totalTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  day complete   |   %d trades   |   %s WR   |   $%.0f   |   %.1f%%   |   $%s\", totalTrades, WRStr("
+  },
+  {
+   "line": 24887,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(totalTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  day complete   |   %d trades   |   %s WR   |   $%.0f   |   %.1f%%   |   $%s\", totalTrades, WRStr("
+  },
+  {
+   "line": 24965,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_DailyWins+g_DailyLosses)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  10 in a row   |   WR %s today   |   $%.0f   |   %dt\", WRStr((g_DailyWins > 0 ? (double)g_DailyWin"
+  },
+  {
+   "line": 25038,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(recentTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   adaptive   WR %s   |   thr +%.1f -> %.1f   |   weights x%.2f   |   %dt\", WRStr(recentWR"
+  },
+  {
+   "line": 25089,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(recentTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   adaptive   WR %s   |   threshold -%.1f   |   weights +%.0f%%   |   thr %.1f   |   %dt\","
+  },
+  {
+   "line": 25437,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(sampleSize)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  SLING |   recovery scan   |   WR %s   |   PF %.2f   |   assessing component performance   |   %dt"
+  },
+  {
+   "line": 25444,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(sampleSize)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  SLING |   recovery   |   WR %s critical   |   PF %.2f   |   threshold +8 - %.0f   |   edge protec"
+  },
+  {
+   "line": 25449,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(sampleSize)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  SLING |   recovery   |   WR %s below 50%%   |   PF %.2f   |   threshold +5 - %.0f   |   %dt\", WRS"
+  },
+  {
+   "line": 25483,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(sampleSize)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  SLING |   recovery   |   component %s   |   WR %s   |   weight halved   |   %dt\", worst1Name, WRS"
+  },
+  {
+   "line": 25494,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(sampleSize)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  SLING |   recovery   |   component %s   |   WR %s   |   weight halved   |   %dt\", worst2Name, WRS"
+  },
+  {
+   "line": 25499,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(sampleSize)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  SLING |   recovery   |   adaptation complete   |   WR %s   |   PF %.2f   |   %dt\", WRStr(winRate,"
+  },
+  {
+   "line": 25614,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)((g_SmartCB.ghostWins + g_SmartCB.ghostLosses))",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  slingshot %s   |   DD -%.1f%%   |   ghost WR %s   |   thr +%.0fp   |   premium only   |   %dt\", m"
+  },
+  {
+   "line": 25616,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_SmartCB.ghostWins + g_SmartCB.ghostLosses)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost context   |   %d trades at %s WR   |   cause: %s\","
+  },
+  {
+   "line": 25701,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Slingshot.tradesInSlingshot)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  %s   |   %d trades   |   %s WR   |   net $%.0f   |   %.1f hours\", successful?\"recovered\":\"timeout"
+  },
+  {
+   "line": 26771,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_SOM_PLDSHighRiskCalls)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  PLDS   |   sensitivity reduced to %.2f   |   false-alarm rate %s   |   %dt\", g_PLDS_SensitivityFa"
+  },
+  {
+   "line": 26784,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_SOM_PLDSLowRiskCalls)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  PLDS   |   sensitivity raised to %.2f   |   miss rate %s   |   %dt\", g_PLDS_SensitivityFactor, WR"
+  },
+  {
+   "line": 27396,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "sampleN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P1    |   best-effort arm   |   WR %s   |   threshold %.0f   |   continues at reduced confidence "
+  },
+  {
+   "line": 27516,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "sampleN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P6    |   best-effort arm   |   WR %s   |   %s   |   %d/7 gates   |   fragile flag set   |   %dt\""
+  },
+  {
+   "line": 27528,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "sampleN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P6    |   insufficient edge   |   WR %s   |   %s   |   %d/7 gates   |   arming with equal weights"
+  },
+  {
+   "line": 27534,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "sampleN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P6    |   WR %s < 58%% floor   |   %s   |   live execution suspended   |   ghost observation acti"
+  },
+  {
+   "line": 27597,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "sampleN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  calibration complete   |   all 6 phases fully verified   |   WR %s   |   %dt\", WRStr(ctrlWR*100, "
+  },
+  {
+   "line": 27954,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  RISK  |   %.1f%%   |   WR %s   |   PF %.2f   |   CEO %.0f   |   %s   |   %dt\", g_Risk.currentRisk"
+  },
+  {
+   "line": 28222,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(30)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  RISK  |   relaxing   threshold -> %.0f   |   WR %s   |   PF %.1f   |   mastered   |   %dt\", g_Bas"
+  },
+  {
+   "line": 28234,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(30)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  RISK  |   relaxing   threshold -> %.0f   |   WR %s   |   PF %.1f   |   %dt\", g_BaseThreshold, WRS"
+  },
+  {
+   "line": 28282,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(30)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  full recovery   |   WR %s   |   threshold %.0f   |   edge confirmed   |   operating normally   | "
+  },
+  {
+   "line": 28355,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  peak performance   |   WR %s   |   maximum efficiency   |   %dt\", WRStr(currentWR, (int)(g_Risk.r"
+  },
+  {
+   "line": 28426,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(recentTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  WR %s   |   %d trades   |   acceptable\", WRStr(currentWR, (int)(recentTrades), 1), recentTrades"
+  },
+  {
+   "line": 30909,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(60)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  market shift   |   30d WR %s   |   %dt\", WRStr(g_RegimeChange.rolling30DayWR, (int)(60), 1), (int"
+  },
+  {
+   "line": 30934,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(60)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  90+ days struggling   |   WR %s   |   consider pause   |   %dt\", WRStr(g_RegimeChange.rolling30Da"
+  },
+  {
+   "line": 30945,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(60)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  performance restored   |   WR %s   |   %dt\", WRStr(g_RegimeChange.rolling30DayWR, (int)(60), 1), "
+  },
+  {
+   "line": 31289,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  behind pace   |   WR %s   |   maintaining edge focus   |   %dt\", WRStr(currentWR, (int)(g_Risk.re"
+  },
+  {
+   "line": 31780,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Discovery.ghostTradeCount)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  GHOST |   discovery   %d trades   |   WR %s   |   %d min remaining\", g_Discovery.ghostTradeCount,"
+  },
+  {
+   "line": 31784,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Discovery.bestWinRateSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  GHOST |   discovery   best thr %.0f   |   WR %s   |   mo wt %.2f   |   %dt\", g_Discovery.bestThre"
+  },
+  {
+   "line": 32285,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(results[bestIdx].totalSignals)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  phase 2.1   |   WR %s   |   PF %.2f   |   %d configs   |   %dt\", WRStr(bestWR, (int)(results[best"
+  },
+  {
+   "line": 32288,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(results[bestIdx].totalSignals)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  exceptional WR %s   |   PF %.2f   |   no further testing needed   |   %dt\", WRStr(bestWR, (int)(r"
+  },
+  {
+   "line": 32293,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(results[bestIdx].totalSignals)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  strong WR %s   |   PF %.2f   |   refining   |   %dt\", WRStr(bestWR, (int)(results[bestIdx].totalS"
+  },
+  {
+   "line": 32302,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(results[bestIdx].totalSignals)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  acceptable WR %s   |   PF %.2f   |   adaptive search   |   %dt\", WRStr(bestWR, (int)(results[best"
+  },
+  {
+   "line": 32309,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(results[bestIdx].totalSignals)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  marginal WR %s   |   PF %.2f   |   full adaptive search   |   %dt\", WRStr(bestWR, (int)(results[b"
+  },
+  {
+   "line": 32316,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(results[bestIdx].totalSignals)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  low WR %s   |   PF %.2f   |   extreme parameter search   |   %dt\", WRStr(bestWR, (int)(results[be"
+  },
+  {
+   "line": 32561,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_HistoricalBacktester.topConfig1.totalSignals)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  GHOST  |   historical insight   |   thr %.0f   |   WR %s   |   PF %.2f   |   %dt\", g_CurrentThres"
+  },
+  {
+   "line": 32581,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_SmartCB.lastSuccessfulResumeSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  GHOST  |   blended insight   |   thr %.0f   |   live WR %s   |   %dt\", g_CurrentThreshold, WRStr("
+  },
+  {
+   "line": 32598,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_SmartCB.lastSuccessfulResumeSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  GHOST  |   prior knowledge   |   thr %.0f   |   WR %s at last success   |   %dt\", g_SmartCB.lastO"
+  },
+  {
+   "line": 32624,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  GHOST  |   activated   |   session %d   |   CEO %.0f   |   WR %s   |   paper mode until %d trades"
+  },
+  {
+   "line": 32645,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(FLOOR_GHOST_MIN_TRADES)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  GHOST  |   %d consecutive losses   |   virtual mode   |   %s WR required on %d trades\", FLOOR_GHO"
+  },
+  {
+   "line": 32949,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_regT)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost adapt   |   regime %d (%s)   |   live WR %s (%dt)   |   threshold +%.1fpt   |   recalibrate"
+  },
+  {
+   "line": 33001,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(totalGhosts)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost exit premium   |   %s WR %d trades   |   +15%% size next 10\", WRStr(g_SmartCB.ghostWinRate,"
+  },
+  {
+   "line": 33021,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_SmartCB.ghostWins + g_SmartCB.ghostLosses)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost closed   |   %s WR   |   %d trades  ->  live   |   threshold %.0f   |   recovery #%d\","
+  },
+  {
+   "line": 33039,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)((g_SmartCB.ghostWins + g_SmartCB.ghostLosses))",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost exit boost   |   regime %d   |   threshold -%.1f pt   |   ghost WR %s   |   %dt\", _pgReg, _"
+  },
+  {
+   "line": 33064,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_gvTotal)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost closed   |   WR %s after %d trades   |   structural shift   |   CATREC before slingshot\", W"
+  },
+  {
+   "line": 33081,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_gvTotal)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost closed   |   %s WR  ->  slingshot   |   $%.0f target   |   DD -%.1f%%\","
+  },
+  {
+   "line": 33237,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Slingshot.tradesInSlingshot)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  SLING |   progress %.1f%%   |   %d trades   |   WR %s   |   P/L $%.2f\", progress, g_Slingshot.tra"
+  },
+  {
+   "line": 33329,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Slingshot.tradesInSlingshot)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  slingshot SUCCESS   |   $%.0f -> $%.0f   |   %.0f min   |   %d trades   |   WR %s   |   %s\", g_Sl"
+  },
+  {
+   "line": 33333,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Slingshot.tradesInSlingshot)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  SLING |   %d trades   |   WR %s   |   net $%.0f   |   retry #%d   |   escalating\", g_Slingshot.tr"
+  },
+  {
+   "line": 34011,
+   "verdict": "SPECIFICATION",
+   "denominator": null,
+   "den_source": "every argument is a compile-time constant",
+   "guard": "not a measured rate -- no sample exists to floor",
+   "fmt": "\"  LIVE  |   floor   WR %.0f%%->%.0f%%   |   %d tpd   |   RR %.1f   |   ghost %dL   |   slingshot %."
+  },
+  {
+   "line": 34014,
+   "verdict": "SPECIFICATION",
+   "denominator": null,
+   "den_source": "every argument is a compile-time constant",
+   "guard": "not a measured rate -- no sample exists to floor",
+   "fmt": "\"  LIVE  |   medium   WR %.0f%%->%.0f%%   |   %d tpd   |   ghost %dL   |   unlocks when rolling WR s"
+  },
+  {
+   "line": 38943,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_IndPairN[ba][bb])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"    %-10s + %-10s   WR %s   (%d samples)\", IE_Name(ba), IE_Name(bb), WRStr(bw*100.0, (int)(g_IndPai"
+  },
+  {
+   "line": 39046,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_sumN142",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  INDINTEL S5 |   %s   |   real-outcome pair WR %s (%d pairs)   |   raw-return weight trimmed x%.2f"
+  },
+  {
+   "line": 39263,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_IndPairN[g_IndPairBestA][g_IndPairBestB])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  INDINTEL    |   COMPLETE   |   best pair %s+%s @ %s WR   |   data now usable by score & gates\","
+  },
+  {
+   "line": 40886,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_c.n)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"   [LOADED] Forge champion restored -- EV %.4f, WR %s, PBO %.3f, n=%d -- ratchet enforces this floo"
+  },
+  {
+   "line": 40896,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_p.n)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"   [LOADED] Forge reversion stash restored -- EV %.4f, WR %s, n=%d -- ForgeChampion_Revert() can re"
+  },
+  {
+   "line": 42505,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "tT",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  BARLABELS |   thr %.0f   |   taken WR %s  meanR %+.4f   |   declined WR %s  meanR %+.4f   |   %s\""
+  },
+  {
+   "line": 42900,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_thrBestN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P1  \u00b7  grid  ->  thr %.0f  \u00b7  %s WR  \u00b7  %d trades\", _thrBest, WRStr(_thrBestWR*100, (int)(_thrBes"
+  },
+  {
+   "line": 42979,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(ctrlTotalTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P1    |   baseline WR %s   |   PF %.2f   |   %d trades   |   threshold %.0f   |   %d bars scanned"
+  },
+  {
+   "line": 42992,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_rBandTotal[_rb])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P1 keys3-edge-by-R   |   %-18s   |   %s WR   |   %d trades\", _rNames[_rb], WRStr(_rbWR*100, (int)"
+  },
+  {
+   "line": 43049,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_rN[_bIdx])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P1    |   best exit ratio %.1f   |   WR %s   |   %dt\", _rC[_bIdx], WRStr(_bWR*100, (int)(_rN[_bId"
+  },
+  {
+   "line": 43096,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(sessW[bestSess]+sessL[bestSess])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P1    |   global WR low but %s session shows %s WR   |   continuing\","
+  },
+  {
+   "line": 43146,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(ctrlTotalTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  phase 1 retry   |   thr %.0f   |   WR %s   |   %d trades\", baselineThreshold, WRStr(ctrlWR*100, ("
+  },
+  {
+   "line": 43362,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "bestCompN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  best component   |   %s   |   %s WR vs %.0f%% equal-weight\","
+  },
+  {
+   "line": 43414,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(bestRefinedTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  phase 1 refinement   |   threshold %.0f -> %.0f   |   WR %s -> %.1f%%   |   %d trades\", baselineT"
+  },
+  {
+   "line": 43701,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_RegimeCorrelations[_p3seed].signalTotal)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  REGIME|   r%d low-information   |   IC %.3f   |   WR %s   |   PF %.2f   |   margin +6pt   |   %dt"
+  },
+  {
+   "line": 43756,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "MathMax(0,p3br))].trainingWR*100,\n                  g_P3BReportTrainN[MathMin(8,MathMax(0,p3br))]",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P3B  \u00b7  r%d/9  %-20s  \u00b7  DONE  \u00b7  %s WR  val %.1f%%  \u00b7  %ds  \u00b7  budget %s\","
+  },
+  {
+   "line": 44714,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_p6BestN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P6    |   9.31 spiral-guard  \u00b7  best WR %s vs final %.1f%%  \u00b7  restoring peak thresholds + re-run"
+  },
+  {
+   "line": 44971,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "ctrlTotalTrades",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P1   |   baseline WR %s   |   thr %.0f   |   bars %d   |   spread %.1f pips   |   breakeven %.1f%"
+  },
+  {
+   "line": 44982,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_RegimeCorrelations[_d2r].signalTotal)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P2   |   r%d %-18s   WR %s   n %d   PF %.2f   IC %.3f   thr %.0f\", _d2r, GetRegimeName(_d2r), WRS"
+  },
+  {
+   "line": 45012,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "ghostTotal",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  [%s] WR %s\u2265%.0f%%   [%s] PF %.2f\u22651.80   [%s] EV %.4f\u22650.006\","
+  },
+  {
+   "line": 45130,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "ghostFinalN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  phase 6 PRI result   |   WR %s   |   %.1f wins/day   |   %s\","
+  },
+  {
+   "line": 45177,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(regimeObs[_brl])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  regime %s   |   OOS WR %s   |   %d obs   |   threshold raised\", GetRegimeName(_brl), WRStr(_rOOSW"
+  },
+  {
+   "line": 45280,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(ghostTotal)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P6  \u00b7  ghost %s WR  \u00b7  %d/6 gates  \u00b7  PF %.2f  \u00b7  %s  \u00b7  %d quarantined\","
+  },
+  {
+   "line": 45347,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "ghostTotal",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ARMED    \u00b7  %s WR  \u00b7  PF %.2f  \u00b7  E[R] %+.2fR  \u00b7  %.1f wins/day  \u00b7  %d/6 gates  \u00b7  %dt\","
+  },
+  {
+   "line": 45352,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "ghostTotal",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  NOTE  \u00b7  WR %s is near breakeven %.1f%%  \u00b7  reduce lot size until live edge confirms  \u00b7  %dt\","
+  },
+  {
+   "line": 45385,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "ghostTotal",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  STAND DOWN  \u00b7  %s WR  \u00b7  E[R] %+.2fR  \u00b7  %d/6 gates  \u00b7  no live trades  \u00b7  %dt\","
+  },
+  {
+   "line": 45387,
+   "verdict": "DERIVED_THRESHOLD",
+   "denominator": null,
+   "den_source": "computed from payoff geometry (1/(1+RR)), not from outcomes",
+   "guard": "not a measured rate -- no sample exists to floor",
+   "fmt": "\"  breakeven is %.1f%% WR (RR %.1f:1%s)  \u00b7  train %.1f%%  OOS %.1f%%  \u00b7  gap %+.1fpp\","
+  },
+  {
+   "line": 45485,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Ghost_Total)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  FORWARD  |   period registered   |   %d days, min %d trades   |   predicted WR %s CI [%.1f, %.1f]"
+  },
+  {
+   "line": 45540,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "g_Ghost_Total",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  RATCHET  \u00b7  %s %s  \u00b7  ghostWR %s  \u00b7  OOS %d  \u00b7  PF %.2f  \u00b7  gates %d/6  \u00b7  time %.0fmin\","
+  },
+  {
+   "line": 45809,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Calibration.baselineWRSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P5.3  |   baseline to beat   |   %s WR\", WRStr(g_Calibration.baselineWR * 100, (int)(g_Calibratio"
+  },
+  {
+   "line": 47955,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "g_RegimeBanks[regime].totalTradesBehindWR",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  %s   |   %d scenarios   |   avg WR %s over %dt   |   best %s over %dt\","
+  },
+  {
+   "line": 48310,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Calibration.calibratedWRSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  CATREC  |   threshold %.1f\u2192%.1f | calibWR %s   |   %dt\", g_Calibration.preCalibThreshold, g_Calib"
+  },
+  {
+   "line": 49690,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_State.totalTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   tier   floor -> medium   |   WR %s (+%.0fpp)   |   %d trades   |   20 tpd now\", WRStr(r"
+  },
+  {
+   "line": 49705,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  tier warning   |   WR %s below sustain %.0f%%   |   day %d/2 before fallback\","
+  },
+  {
+   "line": 49714,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  TIER FALLBACK   |   MEDIUM -> FLOOR   |   WR %s   |   2 days below %.0f%%   |   %dt\", WRStr(rolli"
+  },
+  {
+   "line": 50109,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"    live WR %s  prev calib WR %.0f%%  threshold %.0f  regime %s   |   %dt\", WRStr(g_Risk.recentWinR"
+  },
+  {
+   "line": 50219,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "g_Ghost_Total",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  GAME PLAN |   half-Kelly WR %s  %s  x  %.1f trades/day   |   ~%.2f%%/day   |   10x in ~%d trading"
+  },
+  {
+   "line": 50556,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_bSz)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost batch %d  |  trades %d-%d  |  WR %s  |  running %.0f%%  |  P&L %+.1f\","
+  },
+  {
+   "line": 50580,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(sampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  GHOST  |   %d trades scored   |   %d total   |   WR %s\", sampleN, g_GhostTradeCount, WRStr(winRat"
+  },
+  {
+   "line": 50583,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_GhostTradeCount)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  ghost sim   |   %d trades   |   WR %s\", g_GhostTradeCount, WRStr(winRate, (int)(g_GhostTradeCount"
+  },
+  {
+   "line": 52666,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_AggregateMetrics.totalTradesExecuted)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  WR %s   |   sitting out until conditions improve   |   %dt\", WRStr(winRate*100, (int)(g_Aggregate"
+  },
+  {
+   "line": 52688,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_AggregateMetrics.totalTradesExecuted)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  WR %s   |   aggressive protection   |   %dt\", WRStr(winRate*100, (int)(g_AggregateMetrics.totalTr"
+  },
+  {
+   "line": 52706,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_AggregateMetrics.totalTradesExecuted)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  CAL   |   optimise   WR %s   |   elevated protection   |   %dt\", WRStr(winRate*100, (int)(g_Aggre"
+  },
+  {
+   "line": 52723,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_AggregateMetrics.totalTradesExecuted)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  CAL   |   optimise   WR %s   |   tightening   |   %dt\", WRStr(winRate*100, (int)(g_AggregateMetri"
+  },
+  {
+   "line": 53048,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(systemTotalTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   session   %d trades   |   WR %s   |   PF %.2f   |   net $%.0f\", systemTotalTrades, WRSt"
+  },
+  {
+   "line": 53997,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(recentTotal)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  adaptive threshold   |   adjustment %.1f   |   WR %s   |   %dt\", performanceAdjustment, WRStr(rec"
+  },
+  {
+   "line": 55088,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_SessionStats[hour].trades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   session   %02d:00   |   WR %s   |   avg %+.2fR   |   threshold adjusted to %.0f (was %."
+  },
+  {
+   "line": 55125,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "g_RegimeStats[regime].trades",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  %d regime tuned itself \u2014 WR %s over %d trades, threshold now %.0f (was %.0f)\","
+  },
+  {
+   "line": 55375,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_CEO_CCA_Activations)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  CEO   |   CCA   proven   |   %d trades   |   WR %s   |   CCA adj +0.3pt (total %.1fpt)\", g_CEO_CC"
+  },
+  {
+   "line": 55379,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_CEO_CCA_Activations)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  CEO   |   CCA   recalibrating   |   %d trades   |   WR %s   |   CCA adj -0.2pt (total %.1fpt)\", g"
+  },
+  {
+   "line": 55410,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_lt)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  live validation   |   %d trades   |   WR %s vs calib %.0f%%   |   monitoring for compounding read"
+  },
+  {
+   "line": 55440,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)((g_Slingshot.provenEdgeWinCount + g_Slingshot.provenEdgeLossCount))",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  proven-edge window closed   |   WR %s   |   returning to full parameters   |   %dt\", WRStr(_peWR,"
+  },
+  {
+   "line": 55443,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)((g_Slingshot.provenEdgeWinCount + g_Slingshot.provenEdgeLossCount))",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  proven-edge   |   WR %s < 55%%   |   monitoring for structural shift   |   %dt\", WRStr(_peWR, (in"
+  },
+  {
+   "line": 55692,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)MathMin(g_TradeHistoryCount",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  trade %d   |   %s WR (last 100)\", g_State.totalTrades, WRStr(overallWR, (int)MathMin(g_TradeHisto"
+  },
+  {
+   "line": 55886,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_RegimeStats[_r].trades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  CATREC| diagnosis | rebuild regime %d (%s WR, EV %+.2fR \u2014 was wrong)\","
+  },
+  {
+   "line": 55894,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_RegimeStats[_r].trades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  CATREC| diagnosis | preserve regime %d (%s WR, EV %+.2fR \u2014 was working)\","
+  },
+  {
+   "line": 56417,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "g_Shadow.evaluated)*100, g_Shadow.evaluated",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  FREQ  |   shadow nudge \u2212%.1fpt   |   shadow WR %s   |   %d evaluated   |   effective thr %.0f\","
+  },
+  {
+   "line": 57320,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(regTotal[r3])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P6    |   quarantine  %s  |  WR %s  (cal %.0f%%)  |  suspended   |   %dt\", GetRegimeName(r3), WRS"
+  },
+  {
+   "line": 57323,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(regTotal[r3])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  quarantine lifted  |  %s  |  WR %s  |  restored   |   %dt\", GetRegimeName(r3), WRStr(liveWR*100, "
+  },
+  {
+   "line": 57362,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(rTTotal)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   hourly  WR %s  |  %d regimes healthy  |  %d quarantined  |  %d trades\", WRStr(g_HourlyR"
+  },
+  {
+   "line": 57391,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  proactive recal  |  PLDS risk %.0f%%  |  WR %s still healthy  |  recalibrating before losses   | "
+  },
+  {
+   "line": 57524,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "MathMax(0,regime))]*100, (int)(g_Ghost_RegObs[MathMin(8,MathMax(0,regime))])",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  repair applied  |  %s  |  WR %s\u2192%.0f%%  |  thr %.0f  |  weights updated   |   %dt\", GetRegimeName"
+  },
+  {
+   "line": 57624,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_tT)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   $%.0f   |   WR %s (%.0f%% today, %dT)   |   DD %.1f%%   |   %s   |   %s\", AccountEquity"
+  },
+  {
+   "line": 57879,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Calibration.baselineWRSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  TUNGSTEN \" + EA_VERSION + \" APEX QUANT \" + EA_BUILD_ID + \" |   %s   |   $%.0f   |   armed   |   c"
+  },
+  {
+   "line": 58118,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  \u2666 TUNGSTEN 9.37 APEX   |   %s   |   $%.0f   |   WR %s   |   building [%.0f]   |   risk %.2f%%   |"
+  },
+  {
+   "line": 58122,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  \u2666 TUNGSTEN 9.37 APEX   |   %s   |   $%.0f   |   WR %s   |   competence %.0f   |   risk ceil %.1f%"
+  },
+  {
+   "line": 58372,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(recentTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  SLING |   early warning   |   %d consecutive days WR %s   |   switching to premium-only   |   %dt"
+  },
+  {
+   "line": 58401,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   %d min since last trade   |   WR %s   |   watching   |   %dt\", _lossMins, WRStr(g_Risk."
+  },
+  {
+   "line": 58434,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_totalT)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   $%.0f   |   WR %s (%.0f%% today %dT)   |   %s   |   %s\", AccountBalance(), WRStr(g_Risk"
+  },
+  {
+   "line": 59159,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_sessT)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  this session | WR %s \u2014 threshold raised +3pt   |   %dt\", WRStr(_sessWR*100, (int)(_sessT), 0), (i"
+  },
+  {
+   "line": 59210,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(_cgT)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  CATREC  |   confirmed %s WR on %d trades \u2014 resuming live\", WRStr(_cgWR, (int)(_cgT), 0), _cgT"
+  },
+  {
+   "line": 59214,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "_cgT",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  CATREC  |   confirming   |   %d/30 trades   |   WR %s   |   target %.0f%%\", _cgT, WRStr(_cgWR, _c"
+  },
+  {
+   "line": 59838,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  RISK   |   WR %s   |   min-lot   |   %.2f lots   |   edge observation mode   |   %dt\", WRStr(curr"
+  },
+  {
+   "line": 59896,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "recentTrades",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  RISK   |   WR %s   |   target %.1f%%   |   conf %.2f   |   risk %.2f%%   |   trades %d\","
+  },
+  {
+   "line": 60083,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  RISK  |   %.1f%%   |   $%.2f/trade   |   WR %s   |   CEO %.0f   |   %s   |   %dt\", baseRiskPercen"
+  },
+  {
+   "line": 60297,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  min-lot   |   WR %s   |   %.2f lots   |   edge observation   |   %dt\""
+  },
+  {
+   "line": 61966,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_RecentWinRateN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  LIVE  |   status   %d active   |   score %.1f   |   WR %s   |   PF %.2f   |   risk %.1f%%   |   %"
+  },
+  {
+   "line": 64084,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(ghostTotal)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  GHOST  |   mode insufficient   |   WR %s   |   equity -%.1f%%   |   activating slingshot   |   %d"
+  },
+  {
+   "line": 64756,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Risk.recentSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  GROWTH  |   defensible daily %.2f%%   |   %d-day projection $%.2f -> $%.2f   |   WR %s   RR %.2f "
+  },
+  {
+   "line": 64849,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_Calibration.calibratedWRSampleN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  P6    |   validation   %d/5 checks   |   %.0f%%   |   trusted   |   expected WR %s   |   %dt\", pa"
+  },
+  {
+   "line": 64886,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_E99_Memory.last100TradesN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  live validation   |   WR %s   |   PF %.2f   |   expected %.1f%%   |   floor %.0f%%   |   %s   |  "
+  },
+  {
+   "line": 64889,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_E99_Memory.last100TradesN)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  live validation   |   WR %s   |   PF %.2f   |   expected %.1f%%   |   deviation %.1f%%   |   %s  "
+  },
+  {
+   "line": 64907,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "g_E99_Memory.last50TradesN",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  milestone %d/10   |   $%.0f   |   peak $%.0f   |   %.1f%% to $1M   |   WR %s (%s%.0fpp vs cal)   "
+  },
+  {
+   "line": 64937,
+   "verdict": "FLOOR_ENFORCED",
+   "denominator": "(int)(g_LiveAdaptive.totalLiveTrades)",
+   "den_source": "passed to the floor enforcer by the call itself",
+   "guard": "WRStr withholds below C3_RATE_FLOOR_N (1309)",
+   "fmt": "\"  live adaptive   |   %d trades   |   WR %s   |   edge %.0f%%   |   thr %.0f   |   regimes %d/8   |"
+  }
+ ]
+}

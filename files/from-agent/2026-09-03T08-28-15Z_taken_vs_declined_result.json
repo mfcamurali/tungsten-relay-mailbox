@@ -1,0 +1,60 @@
+{
+ "warrant": "WARRANT#394",
+ "controls": {
+  "null_p": 0.472381904523869,
+  "planted_gap": 0.08555648931683088,
+  "planted_p": 0.00024993751562109475
+ },
+ "rows": [
+  {
+   "thr": 28.0,
+   "n_taken": 12547,
+   "n_declined": 29816,
+   "mean_taken": -0.07015123137004857,
+   "mean_declined": -0.05570772068687947,
+   "gap": -0.014443510683169097,
+   "welch_t": -1.0668831839098596,
+   "welch_df": 23645.641051881972,
+   "perm_p": 0.2858857057147143,
+   "direction": "taken worse than declined"
+  },
+  {
+   "thr": 40.0,
+   "n_taken": 3975,
+   "n_declined": 38388,
+   "mean_taken": -0.0554179622641509,
+   "mean_declined": -0.06045854173179113,
+   "gap": 0.0050405794676402355,
+   "welch_t": 0.2371927974108564,
+   "welch_df": 4831.867873437604,
+   "perm_p": 0.8226088695565221,
+   "direction": "taken better"
+  },
+  {
+   "thr": 55.0,
+   "n_taken": 585,
+   "n_declined": 41778,
+   "mean_taken": -0.019930769230769172,
+   "mean_declined": -0.06054644549763027,
+   "gap": 0.04061567626686109,
+   "welch_t": 0.7582321847284947,
+   "welch_df": 600.1360921905401,
+   "perm_p": 0.4512274386280686,
+   "direction": "taken better"
+  },
+  {
+   "thr": 70.0,
+   "n_taken": 56,
+   "n_declined": 42307,
+   "mean_taken": 1.25000000000581e-05,
+   "mean_declined": -0.06006499160895354,
+   "gap": 0.0600774916089536,
+   "welch_t": 0.3448963506937842,
+   "welch_df": 55.13934754625694,
+   "perm_p": 0.6884155792210389,
+   "direction": "taken better"
+  }
+ ],
+ "significantly_worse": [],
+ "significantly_better": []
+}

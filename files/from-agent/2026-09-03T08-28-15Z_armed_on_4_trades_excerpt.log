@@ -1,0 +1,27 @@
+2026.01.05 00:55:00 |   DEBUG |   overfit   |   train 41.5% -> OOS 0.0% (-41.5pp)   |   inspect 3B per-regime train WR vs P6 OOS rows
+2026.01.05 00:55:00 |   ================================================================
+2026.01.05 00:55:00 |   phase 6/6   |   Ghost Verification   |   below target   |   0.0% WR  *  PF 2.00  *  EV +0.000%  *  0 consec  *  2.0 wins/day
+2026.01.05 00:55:00 |   CAL   |   action   OOS 0.0% vs train 41.5% | 4/6 targets | freq ok  (2.0 wins/day avg)
+2026.01.05 00:55:00 |   phase 6 retry 1   |   threshold 46?31 (45.0pp gapx1.5)
+2026.01.05 00:55:00 |   phase 6 PRI retry   |   threshold adjusted to 31   |   re-running ghost validation
+2026.01.05 00:55:00 |   ghost  �  only 1 qualifying trades in OOS window  �  minimum 20  �  threshold too high or OOS too quiet
+2026.01.05 00:55:00 |   >>  The blind test lacks trades to judge yet. -- The threshold is too strict, or the window too quiet. -- Trying a looser one -- no action needed.  [derived: causation: 1 qualifying out-of-sample trades under the 20-trade judging floor]
+2026.01.05 00:55:00 |   ghost   |   baseline-rescue sweep   |   50:0t/0%   55:0t/0%   60:0t/0%   65:0t/0%   70:0t/0%   |   shown as threshold:trades/winrate
+2026.01.05 00:55:00 |   ghost  �  baseline-rescue best  �  thr 18  �  0t  �  withheld (n 0 < 1309) WR  �  (per-regime scan: 1t)
+2026.01.05 00:55:00 |   FREQ  |   2.0 wins/day   |   need 1.0 (design 1, opportunity 19.4)   |   met
+2026.01.05 00:55:00 |   phase 6 PRI result   |   WR withheld (n 4 < 1309)   |   2.0 wins/day   |   armed at best
+2026.01.05 00:55:00 |   9.21  �  excellent tier adjusted  �  ghostGates 4/7  ?  -1pt
+2026.01.05 00:55:00 |   >>  Making the top conviction tier harder to reach. -- It passed few of its quality gates on unseen data. -- Signals must be stronger now. No action needed.  [derived: causation: 4 of 7 ghost quality gates passed, -1pt against the 5-gate neutral point]
+2026.01.05 00:55:00 |   P6  �  QUARANTINE  �  all regimes carry positive expectancy  �  none blocked
+2026.01.05 00:55:00 |   P6  �  THR-LIFT  �  all passing regimes at or above spec WR  �  no adjustment
+2026.01.05 00:55:00 |   P6  �  Choppy                  �  OOS 100.0%  calib 44.9%  +55.1pp  �   1t  �  clean
+2026.01.05 00:55:00 |   P6  �  train 41.5%  ->  OOS 100.0%  �  drift +58.5pp  �  positive drift
+2026.01.05 00:55:00 |   P6  �  ghost withheld (n 1 < 1309) WR  �  4/6 gates  �  PF 2.00  �  WF-ok  �  0 quarantined
+2026.01.05 00:55:00 |   phase 6/6   |   Ghost Verification   |   done   |   100.0% WR  *  PF 2.00  *  EV +0.07%  *  2.0 wins/day  *  4/6  [ARMED]
+2026.01.05 00:55:00 | -- BLOCK 1 � PHASE � 10.66/SLS(181) --------------
+2026.01.05 00:55:00 |   ARMED    �  withheld (n 1 < 1309) WR  �  PF 2.00  �  E[R] +2.50R  �  2.0 wins/day  �  4/6 gates  �  1t
+2026.01.05 00:55:00 |   USDJPY M5  �  readiness 79/100  �  breakeven 28.6%  �  0 min
+2026.01.05 00:55:00 |   drv    novelty: g_ArmedCountSession=1 since EA start, gates 4/6, ghost n 1
+2026.01.05 00:55:00 |   ? Trading live, at full size. It cleared most of its checks, on too few trades to call the edge proven. Watch the first days.
+2026.01.05 00:55:00 |   TREND  |   learning row appended   |   forecast error 58.49pp   |   type I -1.0%   |   type II -1.0%   |   0t
+2026.01.05 00:55:00 |   FORWARD  |   an open forward registration already exists -- left untouched (no optional stopping)   |   0t

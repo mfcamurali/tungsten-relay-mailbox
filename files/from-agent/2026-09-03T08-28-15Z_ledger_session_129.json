@@ -1,0 +1,94 @@
+{
+ "session": 129,
+ "date": "2026-09-03",
+ "type": "WARRANT#387-407. Four subagents, a headless tester, and the end of the UNAUTOMATED list. Board 17/7 to 22/16 -- and the NOT MET count rising is the honest part.",
+ "AUTHORISATION": "Manuel: 'dont stop until done al agents are at your disposal'. Four general-purpose subagents were run: C3.1 net-b triage, checkers for the twelve unautomated criteria, C1.1 root cause, and the remaining C3.2 sites. The .mq4 was edited serially by the orchestrator only; every subagent produced anchored edit scripts and was told to refuse rather than mis-patch if the build moved. It moved eleven times and every anchor still matched exactly once.",
+ "THE_BOARD": {
+  "at_session_start_today": "automated MET 17, NOT MET 7, 30 of 46 with a checker, 12 UNAUTOMATED.",
+  "now": "automated MET 22, NOT MET 16, 42 of 46 with a checker, UNAUTOMATED EMPTY.",
+  "earned_today": "C2.2, C3.2, C6.1, C6.4, C8.2.",
+  "why_NOT_MET_rose_from_7_to_16": "Eleven criteria that had NO checker were neither passing nor failing -- unmeasured. Ten of them fail. An unmeasured criterion carried as 'not counted' is one nobody has to answer for, so the board getting worse is the board getting true."
+ },
+ "C3_2_MET_AND_THE_RETRACTION_ON_THE_WAY": {
+  "the_retraction": "C3.2 was declared MET at 06:09 on 132 sites, and RETRACTED forty minutes later. RATE_TOKEN only ever matched ONE WORD ORDER -- the rate word before the conversion, 'WR %.1f%%'. This build writes it the other way round in 38 places, '%.1f%% WR', and those 38 were invisible to every C3.1 and C3.2 instrument for the entire campaign: the whole P3B weight-search trace, the day-complete summaries, the CATREC rebuild/preserve diagnoses, 'P5.3 baseline to beat'. Found by reading the build's OWN LOG from a tester run and noticing a '100.0% WR' in a shape the audit had never had to consider.",
+  "then_six_more": "WARRANT#400: LB_Add was not on the reporting-function list. The six sites it hid are the ARMED banner and the STAND DOWN banner -- the two lines that state whether this system trades real money -- plus the P3B COMPLETE and RATCHET lines. 176 sites is the real number; the campaign has been auditing 118 to 132 of them.",
+  "final": "176 sites: 173 FLOOR_ENFORCED, 2 SPECIFICATION (every argument a #define), 1 DERIVED_THRESHOLD (a breakeven computed as 1/(1+RR), which has no sample for a sample floor to apply to). Zero UNGUARDED, zero UNKNOWN. Both exclusions are mechanical, both require two independent conditions, and both are stated rather than folded into the pass.",
+  "adversarially_re_derived": "verify_c32_met.py (WARRANT#387) re-derives the verdict WITHOUT using the audit's classification -- it re-reads the build and asks whether every claimed site really contains a WRStr call, whether each count is a real population rather than a literal 0 or the rate itself, and whether WRStr's own body actually withholds. It is built to fail rather than to confirm. C3.2 survives it."
+ },
+ "WHAT_THE_FLOOR_ENFORCEMENT_IMMEDIATELY_EXPOSED": {
+  "the_line": "phase 6 PRI result   |   WR withheld (n 4 < 1309)   |   2.0 wins/day   |   armed at best",
+  "what_was_around_it": "ghost validation found 'only 1 qualifying trades in OOS window, minimum 20'; the baseline-rescue sweep found 0 trades at every threshold; one regime was judged 'clean' on ONE trade; and the run then printed 'ARMED · 100.0% WR · PF 2.00 · E[R] +2.50R · 4/6 gates'.",
+  "and_the_human_line_said": "'Trading live, at full size -- armed 1 time this session. Cleared every gate with real margin. No action needed.'",
+  "WARRANT_391": "That sentence was selected by exactly one condition -- whether the win rate sat above breakeven. It never consulted p6Met, which it PRINTS as '4/6 gates' one line above, and never consulted the sample size. A verdict contradicting its own evidence one line away is the signature this campaign uses to identify an artefact, and here it was in the build's own reporting, on the most consequential decision it makes. The claim now has to be true on both counts, and the sample bar is C3_RATE_FLOOR_N -- one standard of evidence for what this build PRINTS and for what it CLAIMS.",
+  "the_point": "None of this was hidden. It was all in the log. It became legible the moment one number was replaced by the reason it could not be trusted."
+ },
+ "THE_VERIFIER_CAUGHT_THREE_MORE": {
+  "two_mine": "WARRANT#382 and #383 each changed an argument to WRStr and left the format reading %.1f%%. format_arity_check named both immediately. Five such bugs in one day, every one from a careful anchored edit.",
+  "one_pre_existing": "WARRANT#384: the APEX status heartbeat fed ONE argument list to a ternary between two DIFFERENT format strings. The second takes six values and its fifth conversion is %s; the arguments supply a double there, with a spare left over. On every heartbeat outside competence [40,60) it printed garbage, and had for as long as it existed. A ternary format is not a literal, so the verifier could not check it -- it REPORTED it as unverifiable, and that report is what led to reading the site."
+ },
+ "DEAD_LOGIC_FOUND_BY_A_SUBAGENT_AND_VERIFIED_INDEPENDENTLY": {
+  "WARRANT_397": "g_DailyWins, g_DailyLosses and g_DailyProfit are declared, RESET at the daily rollover, READ at sixteen sites, and incremented NOWHERE -- confirmed by grep over all 65,000 lines. Every daily statistic this build reports has been permanently zero. The live-adaptive threshold block exits at 'if(recentTrades < 10) return' and has never once run; the two-bad-days early-warning slingshot needs recentTrades >= 3 and can never fire; three rate reports are structurally 0/0. Wired at RecordTradeResult, after the duplicate-ticket guard -- the same site and the same defect shape WARRANT#221 fixed for g_AsianTrades/g_AsianWins four lines above.",
+  "also_reported_not_yet_acted_on": "LearningRegimeStats.avgR receives rMultiple in UpdateRegimeStats and discards it; its only assignment in 65,000 lines is a reset to 0.0, while its session twin accumulates correctly. And g_Risk.recentProfitFactor has two writers over different windows -- one sets WR/N/PF together over the last 20 trades, the other sets WR and N from the last hour and never refreshes PF."
+ },
+ "C1_1_ROOT_CAUSE_IS_NOT_THE_MUTATIONS": {
+  "the_real_count": "45 mutations, not the 54 carried in prose: 33 additive, 6 multiplicative, 4 clamps, 2 whole-score replacements, plus 5 terminal statements and 2 twin-only writes CEUS lacks.",
+  "the_actual_cause": "CEUS ends with a rescale the twin has no counterpart for -- _norm = totalScore * (88.0/_refMax), which at the weights in force is 88/169 = 0.5207. Counterfactuals over 49,999 exported bars: as shipped the mean gap is 18.36; making the twin apply all 45 mutations makes it WORSE at 18.99 (the mutations push WITH the signal at mean +0.94 while the rescale shrinks it -- they were partially cancelling); making the twin apply the RESCALE cuts it to 4.31, a 77% reduction. K is identified from the data, not assumed: 6.45% of bars land exactly on one of the four ratios K x {0.82, 1.00, 1.10, 1.25} against 0.96% by chance.",
+  "and_it_is_the_trade_suppression_mechanism": "Calibration fits thresholds on the twin's scale; live applies them to CEUS's half-scale output. At signed threshold 55 the twin qualifies 26.5% of bars and live qualifies 1.3% -- reproducing the portal audit's 132-vs-1 from the scale factor alone. The build's own portal audit has been LOGGING that ratio ('mean |enhanced|/|linear| 0.616') on the same line as the collapse for a month without naming it.",
+  "recommendation": "(b) extract CEUS's tail into a shared helper both call, behind ScorerIdentityNormalise defaulting OFF, the WARRANT#226 pattern -- about 25 lines. It breaks every stored threshold (fitted on the unnormalised scale, wrong by ~1.9x TOWARD TRADING MORE), so it cannot ship without a recalibration. (a) is rejected on measurement: 22 of the 45 mutations are shift==0-only and are not well-defined in a scorer that scans bars out of order.",
+  "not_shipped": "This changes live scoring and every stored threshold. It is scoped, costed and left for Manuel."
+ },
+ "C1_3_WAS_MEASURING_FIVE_OF_ITS_SIX": {
+  "found": "C1.3 claims six shared component scorers and reports 'All six agree'. The parity CSV has columns for mtf, momentum, volatility, volume and session. There is no pattern column and there never has been -- the sixth was asserted from the call graph. Same shape as C2.5's 2026-08-30 failure.",
+  "fixed_and_measured": "WARRANT#398 added the comparison to the EA (g_LastComp_Pattern has existed and been assigned since WARRANT#187; only the calibration side and the counter were missing). WARRANT#404 made the checker consume the column and report plainly when a run does not cover it. The tester run produced pattern_mismatch = 0 over 197 bars. C1.3's MET now rests on six measured components instead of five measured and one assumed."
+ },
+ "C6_1_WAS_COUNTING_UNRESOLVED_BARS_AS_LABELLED": {
+  "found": "The EA loader (WARRANT#380) reported 50,000 rows of which 42,363 resolved. The Python checker, on the same file, reported 'declined labelled 100.0%'. Two instruments answering one question differently -- and this time the research side was wrong.",
+  "cause": "It defined labelled as ~isnan(r_continuous). The export writes a value for every row including the 15.3% whose resolved flag is 0, so nothing is NaN and the check could not fail. main() ALREADY loaded the resolved column into a variable and never read it.",
+  "after": "Coverage, counts, win rates and mean R are computed over resolved outcomes only. The two instruments now agree exactly -- 0.349 taken / 0.354 declined at thr 28, mean R -0.0702 / -0.0557 -- and C6.1 survives on honest numbers."
+ },
+ "WARRANT_394_THE_SELECTION_TEST": {
+  "question": "Do the bars this system would TAKE resolve better than the ones it declines?",
+  "method": "Welch plus a 20,000-iteration permutation test on mean R, with a null control (score replaced by a coin flip: p=0.4724, no effect found) and a planted control (+0.10R added to taken bars: recovered at gap +0.0856, p=0.0002). The script refuses to print a verdict if either control fails.",
+  "result": "thr 28 gap -0.0144 p=0.286 | thr 40 +0.0050 p=0.823 | thr 55 +0.0406 p=0.451 | thr 70 +0.0601 p=0.688. At NO threshold does selection differ from declining by more than chance.",
+  "reading": "The filter is not selecting -- neither for nor against. Every bucket has negative expectancy, so this measures SELECTION, not viability. The apparent inversion at thr 28 does not survive a permutation test, and saying so is the result."
+ },
+ "THE_TESTER_AS_THE_WAY_PAST_THE_RUN_GATE": {
+  "why": "C2.2, C6.3 and C6.4 needed a completed run and could not be earned from source. The Strategy Tester is offline and places no orders, so it reaches them without the live-account hazard.",
+  "C2_2": "WARRANT#389/#390/#403. Three defects in its own selection, each behind the last: it globbed only the live directory; then it selected the newest FILE rather than the newest RUN, and returned MET on the OLDEST run in an append-only log -- possibly from 2026-08-31, which EA_BUILD_ID cannot distinguish because it has read SLS(181) for twelve warrants; then, having required the run to postdate the binary, it judged a tester log by its SIMULATED in-log timestamps and rejected the very run that binary had just produced. Now: run granularity, wall clock from file mtime for tester logs, every run listed with its status. MET on a completed run of the current binary.",
+  "C6_3_C6_4": "Three calibrations on ADVANCING windows (Jan 5-Feb 5, Feb 5-Mar 5, Mar 5-Apr 5). Repeating one window is not a trend -- it is one calibration measured three times, which is what the accumulated file held. C6.4 MET: forecast error 58.49 -> 10.00 -> 22.73, rank correlation -0.500. RECORDED HONESTLY: the calibration is stochastic (the same window gave 33.49 on an earlier batch and 58.49 on this one), a three-point rank correlation is weak evidence, and the file was archived and cleared before the clean sequence for a data-hygiene reason stated in advance. C6.3 remains NOT MET: type1_rate and type2_rate are the -1.00 sentinel in every row -- the EA cannot compute them.",
+  "one_thing_to_report_plainly": "The first tester launch also loaded the default profile, so a LIVE instance ran for about a minute alongside it. It placed no orders -- checked -- reached Phase 1 of calibration and died with the terminal. Subsequent launches use an empty 'notrade' profile."
+ },
+ "TWELVE_CHECKERS_FOR_THE_TWELVE_THAT_HAD_NONE": {
+  "result": "C8.2 MET. C1.5, C2.6, C2.7, C3.8, C5.5, C6.5, C6.6, C8.1, C8.3, C8.4, C8.6 NOT MET. Coverage 30 -> 42 of 46; the UNAUTOMATED list is empty for the first time.",
+  "findings_that_overturn_standing_prose": [
+   "telemetry_integrity_scan.py is blind: its rule is 'identifier appears on one line', so a global declared on one line, written on another and read nowhere files as healthy. It reports SILENT = 0; the correct count is 18.",
+   "C2.6 and C2.7 have been carried as 'MET at baseline' since session 23. Both fail. LBC_FAULT, LBC_BAR and LBC_TRADE are declared in the enum and opened at ZERO call sites.",
+   "The C8.1 status line has never once been drawn -- zero occurrences across all six retained logs. It sits behind 'if(!g_Calibration.isComplete) return;'.",
+   "EXITCOND_MAX headroom is exactly zero: 10 conditions, capacity 10, silent-drop overflow. The next exit rule added vanishes from C6.6's evidence with no compile error.",
+   "check_c4_record.py -- the C4 checker itself -- publishes ICs with no self-test."
+  ],
+  "two_vacuous_passes_caught_during_construction": "check_c81 first returned MET because OnDeinit's Comment(\"\") registered as status-line evidence; check_c82 first returned NOT MET because MT4 writes ANSI and the emitter's marker arrives as '?'. Both fixed and documented. The single PASS was adversarially probed -- removing the human lines, the outcome or the next action flips it."
+ },
+ "BUILD_STATE": {
+  "warrants": "WARRANT#387 through #407",
+  "compiles": "Eleven compiles, each verified by fresh log mtime, .ex4 mtime advancing, .ex4 newer than .mq4, and byte count changing. Two produced errors and were reverted whole; one produced a single warning and was fixed to zero before shipping.",
+  "final": "0 errors, 0 warnings, deployed byte-identical to the Experts folder, MD5-verified.",
+  "verifier": "1,195 literal-format calls checked, 0 findings; 7 non-literal formats reported as unverifiable rather than assumed correct.",
+  "live_trading_behaviour": "Unchanged except where it was provably broken: the daily counters now increment (WARRANT#397 -- they were always meant to), and the arming line no longer claims margin it does not have. No threshold, gate, size or entry rule was altered."
+ },
+ "STILL_OPEN": {
+  "C1_1": "Scoped and costed above. Needs Manuel: it changes live scoring and invalidates every stored threshold.",
+  "C3_1": "114 of 176 sites lack realised net b. 20 were class A and are fixed; 27 are class B and MUST NOT be fixed by appending a payoff from a different population; 79 need payoff accumulation threaded through. A design change.",
+  "C6_3": "The EA cannot compute type I / type II error rates -- the sentinel is -1.00 in every row ever written.",
+  "C4": "Still the criterion that stops and asks.",
+  "C8_5": "Its held-bar half is detected by prose regexes matched against a house style later sessions stopped using. The half that could be corroborated objectively was rewired to the BOARD (a criterion counts only if the session names it AND the board independently reports it NOT MET -- 7 today). The prose regexes were deliberately NOT tuned to my own wording: a checker rewritten to recognise its author's phrasing is the definition of opening a gate for convenience, which is the thing this criterion forbids. It stays NOT MET.",
+  "eleven_newly_measured": "C1.5, C2.6, C2.7, C3.8, C5.5, C6.5, C6.6, C8.1, C8.3, C8.4, C8.6 -- each now has a checker, a verdict and a named reason."
+ },
+ "RULES_EARNED": {
+  "AN_INSTRUMENT_MATCHES_ONE_SHAPE_UNTIL_SOMETHING_MAKES_YOU_LOOK": "RATE_TOKEN matched one word order for the whole campaign. Nothing found it by inspection; it was found by reading a LOG and noticing a number in a form the audit had never had to consider. Read the output, not only the source.",
+  "THE_LIST_OF_EMITTERS_IS_ITSELF_A_BLIND_SPOT": "First PrintFormat/Print (missed TLog), then TLog/HLog (missed LB_Add, which composes the ARMED and STAND DOWN banners). Every time the answer was 'the criterion was never measured where it mattered most'.",
+  "DELEGATE_THE_READING_KEEP_THE_WRITING": "Four subagents produced anchored edit scripts while the orchestrator held the only write lock on a 3.5MB file that moved eleven times. Every anchor was asserted to match exactly once and refused otherwise; not one mis-patched.",
+  "A_RESULT_WITHOUT_A_CONTROL_IS_AN_ANECDOTE": "WARRANT#394's finding is a NULL. It is worth having only because the planted control recovered a known effect and the null control found nothing in noise."
+ },
+ "NEXT_SENTENCE": "The board got worse today because it finally started measuring the things nobody had built an instrument for."
+}
