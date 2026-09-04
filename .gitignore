@@ -1,0 +1,6 @@
+
+# WARRANT#341: never commit credentials into the relay mailbox.
+.observatory-api-key
+*.api-key
+*.token
+
