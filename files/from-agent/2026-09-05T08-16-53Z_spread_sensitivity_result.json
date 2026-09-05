@@ -1,0 +1,167 @@
+{
+ "warrant": "WARRANT#467",
+ "rows": [
+  {
+   "mode": "market",
+   "spread_pts": 20,
+   "taken": 181,
+   "per_day": 0.3844065546829322,
+   "terminal": 1.015110659061172,
+   "cagr": 0.008058969792209991,
+   "max_dd": 0.03864498226435842,
+   "survives": true
+  },
+  {
+   "mode": "market",
+   "spread_pts": 16,
+   "taken": 403,
+   "per_day": 0.8558886272774678,
+   "terminal": 1.016681937200704,
+   "cagr": 0.008893769386043582,
+   "max_dd": 0.06417032322018967,
+   "survives": true
+  },
+  {
+   "mode": "market",
+   "spread_pts": 13,
+   "taken": 839,
+   "per_day": 1.7818624275081776,
+   "terminal": 1.014439569930949,
+   "cagr": 0.007702245859761314,
+   "max_dd": 0.08735265606254472,
+   "survives": true
+  },
+  {
+   "mode": "market",
+   "spread_pts": 10,
+   "taken": 1867,
+   "per_day": 3.965121754657649,
+   "terminal": 1.0467846556170086,
+   "cagr": 0.02477275481872865,
+   "max_dd": 0.1311316200271232,
+   "survives": true
+  },
+  {
+   "mode": "market",
+   "spread_pts": 8,
+   "taken": 3274,
+   "per_day": 6.9532986742095035,
+   "terminal": 1.086505128050398,
+   "cagr": 0.04540376516935418,
+   "max_dd": 0.15862666382878032,
+   "survives": true
+  },
+  {
+   "mode": "market",
+   "spread_pts": 6,
+   "taken": 5627,
+   "per_day": 11.950583885087623,
+   "terminal": 1.2733738516792672,
+   "cagr": 0.13807787000757044,
+   "max_dd": 0.21908735923322653,
+   "survives": true
+  },
+  {
+   "mode": "market",
+   "spread_pts": 4,
+   "taken": 8904,
+   "per_day": 18.91025393865651,
+   "terminal": 1.9908646291375636,
+   "cagr": 0.44559253910851604,
+   "max_dd": 0.2647767391757443,
+   "survives": true
+  },
+  {
+   "mode": "market",
+   "spread_pts": 2,
+   "taken": 12096,
+   "per_day": 25.68940157704281,
+   "terminal": 7.520330754941878,
+   "cagr": 1.944139534576041,
+   "max_dd": 0.32894605303564484,
+   "survives": true
+  },
+  {
+   "mode": "limit",
+   "spread_pts": 20,
+   "taken": 0,
+   "per_day": 0.0,
+   "terminal": 1.0,
+   "cagr": 0.0,
+   "max_dd": 0.0,
+   "survives": true
+  },
+  {
+   "mode": "limit",
+   "spread_pts": 16,
+   "taken": 0,
+   "per_day": 0.0,
+   "terminal": 1.0,
+   "cagr": 0.0,
+   "max_dd": 0.0,
+   "survives": true
+  },
+  {
+   "mode": "limit",
+   "spread_pts": 13,
+   "taken": 0,
+   "per_day": 0.0,
+   "terminal": 1.0,
+   "cagr": 0.0,
+   "max_dd": 0.0,
+   "survives": true
+  },
+  {
+   "mode": "limit",
+   "spread_pts": 10,
+   "taken": 0,
+   "per_day": 0.0,
+   "terminal": 1.0,
+   "cagr": 0.0,
+   "max_dd": 0.0,
+   "survives": true
+  },
+  {
+   "mode": "limit",
+   "spread_pts": 8,
+   "taken": 0,
+   "per_day": 0.0,
+   "terminal": 1.0,
+   "cagr": 0.0,
+   "max_dd": 0.0,
+   "survives": true
+  },
+  {
+   "mode": "limit",
+   "spread_pts": 6,
+   "taken": 0,
+   "per_day": 0.0,
+   "terminal": 1.0,
+   "cagr": 0.0,
+   "max_dd": 0.0,
+   "survives": true
+  },
+  {
+   "mode": "limit",
+   "spread_pts": 4,
+   "taken": 0,
+   "per_day": 0.0,
+   "terminal": 1.0,
+   "cagr": 0.0,
+   "max_dd": 0.0,
+   "survives": true
+  },
+  {
+   "mode": "limit",
+   "spread_pts": 2,
+   "taken": 0,
+   "per_day": 0.0,
+   "terminal": 1.0,
+   "cagr": 0.0,
+   "max_dd": 0.0,
+   "survives": true
+  }
+ ],
+ "tp": 3.0,
+ "sl": 4.0
+}
