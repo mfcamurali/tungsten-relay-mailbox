@@ -1,0 +1,44 @@
+{
+ "warrant": "WARRANT#491",
+ "derived_capacity_per_position": 273276748.97119343,
+ "old_guess": 25000000.0,
+ "understated_by": 10.931069958847738,
+ "per_pair": {
+  "EURUSD": 643004115.2263376,
+  "USDJPY": 401877572.01646096,
+  "GBPUSD": 176826131.6872428,
+  "USDCHF": 88413065.8436214,
+  "EURJPY": 56262860.08230453
+ },
+ "tolerance_curve": [
+  {
+   "tolerance": 0.1,
+   "capacity": 43724279.83539095,
+   "E_star": 14009259.259259261,
+   "wall": 21932098.7654321
+  },
+  {
+   "tolerance": 0.25,
+   "capacity": 273276748.97119343,
+   "E_star": 87557870.37037039,
+   "wall": 137075617.28395063
+  },
+  {
+   "tolerance": 0.5,
+   "capacity": 1093106995.8847737,
+   "E_star": 350231481.48148155,
+   "wall": 548302469.1358025
+  },
+  {
+   "tolerance": 1.0,
+   "capacity": 4372427983.539095,
+   "E_star": 1400925925.9259262,
+   "wall": 2193209876.54321
+  }
+ ],
+ "E_star_derived": 87557870.37037039,
+ "wall_derived": 137075617.28395063,
+ "income_derived": 213702417.69547328,
+ "years_100_to_Estar": 4.733868674508469,
+ "corrects": "CAPACITY_NOTIONAL=$25M was a guess; square-root impact law gives a materially larger figure"
+}
